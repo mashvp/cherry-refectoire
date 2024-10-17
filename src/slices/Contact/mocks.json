@@ -1,0 +1,35 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"mail_reception": {
+				"__TYPE__": "FieldContent",
+				"value": "tune",
+				"type": "Text"
+			},
+			"texte": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Esse culpa labore dolor."
+						}
+					}
+				]
+			},
+			"cle_recaptcha": {
+				"__TYPE__": "FieldContent",
+				"value": "satisfied",
+				"type": "Text"
+			},
+			"cle_map": {
+				"__TYPE__": "FieldContent",
+				"value": "country",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

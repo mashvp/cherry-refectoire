@@ -1,0 +1,139 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"titre": {
+				"__TYPE__": "FieldContent",
+				"value": "center",
+				"type": "Text"
+			},
+			"image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+					"width": 3882,
+					"height": 2584
+				},
+				"url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+				"width": 3882,
+				"height": 2584,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"texte": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Exercitation officia Lorem ex pariatur in aliquip non voluptate consectetur nostrud nostrud ad dolor. Culpa velit labore culpa quis."
+						}
+					}
+				]
+			},
+			"url": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com"
+				}
+			},
+			"label": {
+				"__TYPE__": "FieldContent",
+				"value": "easy",
+				"type": "Text"
+			},
+			"background": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"taille_image": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			}
+		},
+		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "imageTexte",
+		"primary": {
+			"titre": {
+				"__TYPE__": "FieldContent",
+				"value": "pictured",
+				"type": "Text"
+			},
+			"texte": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Cillum ex ut anim irure mollit dolore cupidatat irure eu est elit tempor velit ea. Nisi velit laboris eiusmod ipsum ut occaecat in sint do ea sit."
+						}
+					}
+				]
+			},
+			"label": {
+				"__TYPE__": "FieldContent",
+				"value": "system",
+				"type": "Text"
+			},
+			"url": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com"
+				}
+			},
+			"image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef",
+					"width": 4000,
+					"height": 6000
+				},
+				"url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef",
+				"width": 4000,
+				"height": 6000,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"background": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"taille_image": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
+	}
+]

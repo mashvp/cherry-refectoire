@@ -1,0 +1,199 @@
+{
+  "id": "format",
+  "type": "SharedSlice",
+  "name": "Format",
+  "description": "Format",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "titre": {
+          "type": "Text",
+          "config": {
+            "label": "Titre",
+            "placeholder": ""
+          }
+        },
+        "texte": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Texte",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "image_1": {
+          "type": "Image",
+          "config": {
+            "label": "Image 1",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_2": {
+          "type": "Image",
+          "config": {
+            "label": "Image 2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_3": {
+          "type": "Image",
+          "config": {
+            "label": "Image 3",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_4": {
+          "type": "Image",
+          "config": {
+            "label": "Image 4",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_5": {
+          "type": "Image",
+          "config": {
+            "label": "Image 5",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_6": {
+          "type": "Image",
+          "config": {
+            "label": "Image 6",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "texte_1_ligne_1": {
+          "type": "Text",
+          "config": {
+            "label": "Texte 1 ligne 1",
+            "placeholder": ""
+          }
+        },
+        "texte_1_ligne_2": {
+          "type": "Text",
+          "config": {
+            "label": "Texte 1 ligne 2",
+            "placeholder": ""
+          }
+        },
+        "label_1": {
+          "type": "Text",
+          "config": {
+            "label": "Label 1",
+            "placeholder": ""
+          }
+        },
+        "url_1": {
+          "type": "Link",
+          "config": {
+            "label": "URL 1",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "texte_2_ligne_1": {
+          "type": "Text",
+          "config": {
+            "label": "Texte 2 ligne 1",
+            "placeholder": ""
+          }
+        },
+        "texte_2_ligne_2": {
+          "type": "Text",
+          "config": {
+            "label": "Texte 2 ligne 2",
+            "placeholder": ""
+          }
+        },
+        "label_2": {
+          "type": "Text",
+          "config": {
+            "label": "Label 2",
+            "placeholder": ""
+          }
+        },
+        "url_2": {
+          "type": "Link",
+          "config": {
+            "label": "URL 2",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "texte_3_ligne_1": {
+          "type": "Text",
+          "config": {
+            "label": "Texte 3 ligne 1",
+            "placeholder": ""
+          }
+        },
+        "texte_3_ligne_2": {
+          "type": "Text",
+          "config": {
+            "label": "Texte 3 ligne 2",
+            "placeholder": ""
+          }
+        },
+        "label_3": {
+          "type": "Text",
+          "config": {
+            "label": "Label 3",
+            "placeholder": ""
+          }
+        },
+        "url_3": {
+          "type": "Link",
+          "config": {
+            "label": "URL 3",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "texte_4_ligne_1": {
+          "type": "Text",
+          "config": {
+            "label": "Texte 4 ligne 1",
+            "placeholder": ""
+          }
+        },
+        "texte_4_ligne_2": {
+          "type": "Text",
+          "config": {
+            "label": "Texte 4 ligne 2",
+            "placeholder": ""
+          }
+        },
+        "label_4": {
+          "type": "Text",
+          "config": {
+            "label": "Label 4",
+            "placeholder": ""
+          }
+        },
+        "url_4": {
+          "type": "Link",
+          "config": {
+            "label": "URL 4",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

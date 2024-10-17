@@ -1,0 +1,43 @@
+{
+  "id": "lieux",
+  "type": "SharedSlice",
+  "name": "Lieux",
+  "description": "Lieux",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "localisation": {
+          "type": "Group",
+          "config": {
+            "label": "Localisation",
+            "repeat": true,
+            "fields": {
+              "background": {
+                "type": "Image",
+                "config": {
+                  "label": "Background",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "titre": {
+                "type": "Text",
+                "config": {
+                  "label": "Titre",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

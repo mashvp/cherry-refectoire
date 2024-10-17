@@ -1,0 +1,147 @@
+{
+  "format": "page",
+  "id": "homepage",
+  "label": "Homepage",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "background_logo": {
+        "type": "Image",
+        "config": {
+          "label": "Background logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "logo": {
+        "type": "Link",
+        "config": {
+          "label": "Logo",
+          "placeholder": "",
+          "select": "media"
+        }
+      },
+      "texte_top": {
+        "type": "Text",
+        "config": {
+          "label": "Texte top",
+          "placeholder": ""
+        }
+      },
+      "media": {
+        "type": "Link",
+        "config": {
+          "label": "Media",
+          "placeholder": "",
+          "select": "media"
+        }
+      },
+      "image_backgound": {
+        "type": "Image",
+        "config": {
+          "label": "Image backgound",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "titre": {
+        "type": "Text",
+        "config": {
+          "label": "Titre",
+          "placeholder": ""
+        }
+      },
+      "contenu": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Contenu",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph"
+        }
+      },
+      "url_lien": {
+        "type": "Link",
+        "config": {
+          "label": "URL lien",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "select": null
+        }
+      },
+      "label_lien": {
+        "type": "Text",
+        "config": {
+          "label": "Label lien",
+          "placeholder": ""
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "contact": {
+              "type": "SharedSlice"
+            },
+            "slider": {
+              "type": "SharedSlice"
+            },
+            "baniere_logo": {
+              "type": "SharedSlice"
+            },
+            "titre": {
+              "type": "SharedSlice"
+            },
+            "media": {
+              "type": "SharedSlice"
+            },
+            "test": {
+              "type": "SharedSlice"
+            },
+            "realisations": {
+              "type": "SharedSlice"
+            },
+            "presentation": {
+              "type": "SharedSlice"
+            },
+            "lieux": {
+              "type": "SharedSlice"
+            },
+            "format": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      },
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      }
+    }
+  }
+}

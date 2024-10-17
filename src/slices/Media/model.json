@@ -1,0 +1,54 @@
+{
+  "id": "media",
+  "type": "SharedSlice",
+  "name": "Media",
+  "description": "Media",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Image",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "video",
+      "name": "Video",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "miniature": {
+          "type": "Image",
+          "config": {
+            "label": "Miniature",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "video": {
+          "type": "Link",
+          "config": {
+            "label": "Video",
+            "placeholder": "",
+            "select": "media"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

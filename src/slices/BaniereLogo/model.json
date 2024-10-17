@@ -1,0 +1,58 @@
+{
+  "id": "baniere_logo",
+  "type": "SharedSlice",
+  "name": "BaniereLogo",
+  "description": "BaniereLogo",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "titre": {
+          "type": "Text",
+          "config": {
+            "label": "Titre",
+            "placeholder": ""
+          }
+        },
+        "images": {
+          "type": "Group",
+          "config": {
+            "label": "Images",
+            "repeat": true,
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        },
+        "label_lien": {
+          "type": "Text",
+          "config": {
+            "label": "Label lien",
+            "placeholder": ""
+          }
+        },
+        "url_lien": {
+          "type": "Link",
+          "config": {
+            "label": "Url lien",
+            "placeholder": "",
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

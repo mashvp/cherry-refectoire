@@ -1,0 +1,56 @@
+{
+  "format": "custom",
+  "id": "header",
+  "label": "Header",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "url_localisation": {
+        "type": "Link",
+        "config": {
+          "label": "Url localisation",
+          "select": "document"
+        }
+      },
+      "navigation": {
+        "type": "Group",
+        "config": {
+          "label": "navigation",
+          "repeat": true,
+          "fields": {
+            "lien": {
+              "type": "Link",
+              "config": {
+                "label": "lien",
+                "select": "document"
+              }
+            },
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "label_bouton": {
+        "type": "Text",
+        "config": {
+          "label": "Label bouton",
+          "placeholder": ""
+        }
+      },
+      "url_bouton": {
+        "type": "Link",
+        "config": {
+          "label": "Url bouton",
+          "placeholder": "",
+          "select": null
+        }
+      }
+    }
+  }
+}
