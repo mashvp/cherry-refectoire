@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { useTransitionState } from "@/library/navigation/TransitionElement";
-import { Content } from "@prismicio/client";
+import { asLink, Content, FilledLinkToWebField } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
 
@@ -56,9 +56,11 @@ const Media = ({ slice }: MediaProps): JSX.Element => {
         </div>
         ):(
           <>
-          <div className="aspect-[1660/880] w-full mediaCtn">
-            <video ref={videoRef} playsInline muted loop src={slice.primary.video.url} />
-          </div>
+          {(asLink(slice.primary.video) && (
+            <div className="aspect-[1660/880] w-full mediaCtn">
+              <video ref={videoRef} playsInline muted loop src={(slice.primary.video as FilledLinkToWebField).url} />
+            </div>
+          ))}
           <div className=" absolute-full w-full h-full grid z-20" ref={ctnRef}>
             <div className="mediaCtn col-1 row-1 filterDark">
               <PrismicNextImage field={slice.primary.miniature} />

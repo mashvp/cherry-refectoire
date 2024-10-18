@@ -6,6 +6,7 @@ import { SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { AnimLink } from "@/library/navigation/AnimLink";
+import { asLink } from "@prismicio/client";
 import HeroHome from '@/component/hero/HeroHome';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -18,6 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+export const dynamicParams = false;
 
 export default async function Page( {params}:any) {
   
@@ -25,16 +27,20 @@ export default async function Page( {params}:any) {
   const page = await client.getSingle("homepage", {lang:params.lang});
   const setting = await client.getSingle("settings", {lang:params.lang});
 
-
-  const lottieResp = await fetch(page.data.logo.url);
-  const lottieJson = await lottieResp.json();
+  const link = asLink(page.data.logo);
+  var res = {};
+  if (link) {
+    const lottieResp = await fetch(  link );
+    const lottieJson = await lottieResp.json();
+    res = lottieJson;
+  } 
 
 
   return (
   <main>
     <HeroHome
       data={page.data}
-      lottie={lottieJson}
+      lottie={res}
     />
     <SliceZone slices={page.data.slices} components={components} context={setting} />
   </main>

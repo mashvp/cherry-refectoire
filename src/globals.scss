@@ -90,21 +90,24 @@
   // }
 }
 
-.hs1 {
-  @apply text-hs1 font-titre;
-}
-.hs2 {
-  @apply text-hs2 font-titre;
-}
-.hs3 {
-  @apply text-hs3 font-titre;
-}
-.base {
-  @apply text-base font-base;
-}
-.small {
-  @apply text-small font-base;
-}
+
+  .hs1 {
+    @apply text-hs1 font-titre;
+  }
+  .hs2 {
+    @apply text-hs2 font-titre;
+  }
+  .hs3 {
+    @apply text-hs3 font-titre;
+  }
+  .base {
+    @apply text-base font-base;
+  }
+  .small {
+    @apply text-small font-base;
+  }
+
+
 
 
 

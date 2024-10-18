@@ -5,6 +5,47 @@
   "repeatable": false,
   "status": true,
   "json": {
+    "404": {
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "texte": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Texte",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "label": {
+        "type": "Text",
+        "config": {
+          "label": "Label",
+          "placeholder": ""
+        }
+      },
+      "lien": {
+        "type": "Link",
+        "config": {
+          "label": "Lien",
+          "placeholder": "",
+          "select": null
+        }
+      }
+    },
     "Main": {
       "siteTitle": {
         "type": "StructuredText",
@@ -13,6 +54,14 @@
           "placeholder": "Title of the site",
           "allowTargetBlank": false,
           "single": "heading1"
+        }
+      },
+      "favicon": {
+        "type": "Image",
+        "config": {
+          "label": "Favicon",
+          "constraint": {},
+          "thumbnails": []
         }
       },
       "facebook": {

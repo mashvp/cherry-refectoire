@@ -2,7 +2,7 @@
    import { useEffect } from 'react';
    import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
-   const Recaptcha = ({ onVerify }) => {
+   const Recaptcha = ({ onVerify }:any) => {
      const { executeRecaptcha } = useGoogleReCaptcha();
 
      useEffect(() => {

@@ -39,6 +39,8 @@ export async function generateMetadata({ params }:any) {
   };
 }
 
+export const dynamicParams = false;
+
 
 
 export default async function Page({ params }:any)  {

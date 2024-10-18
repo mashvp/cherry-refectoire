@@ -10,7 +10,7 @@ const data = {
   //==========================================> CHOIX INSTANCE <=====================================//
 const customFont = {};
 
-switch (process.env.INSTANCE) {
+switch (process.env.NEXT_PUBLIC_INSTANCE) {
   //===================> CHERRY BOMBE
   case "cherry":
 
@@ -86,7 +86,6 @@ switch (process.env.INSTANCE) {
   //==========================================> Base Commen <=====================================//
 
 const screens = {
-  // 'xl': {'min': '1920px'},
   'd-l': {'max': '1680px'},
   'd-m': {'max': '1560px'},
   'd-s': {'max': '1440px'},

@@ -90,7 +90,7 @@ export default function Header({data, settings}:any) {
       </div>
 
       <div className="nav-main flex flex-nowrap row-1 a-center-center gap-40 z-10 text-center t-m:row-2 group-[.open]: t-m:flex-col t-m:col-1-3 t-m:ay-start t-m:w-full t-m:pt-40">
-        {data.navigation.map((item, i) => (
+        {data.navigation.map((item:any, i:number) => (
           <AnimLink key={i} field={item.lien} className=" uppercase">{item.label}</AnimLink>
         ))}
       </div>

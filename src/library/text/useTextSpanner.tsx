@@ -46,13 +46,13 @@ export default function useTextSpanner({children, word = false}:useTextSpanerTyp
             if ( !word) {
               return <span className="word" key={uniqueKey()}>{
                 wordEl.split("").map((char, i)=> (
-                  <span className="letter" ref={el => elements.current.push(el)} key={uniqueKey()}>{char}</span>
+                  <span className="letter" ref={el => {elements.current.push(el as HTMLSpanElement)}} key={uniqueKey()}>{char}</span>
                 ))
               }</span> 
             } else {
               // console.log( children)
 
-              return <span className="word" ref={el => elements.current.push(el)} key={uniqueKey()}>{ wordEl }</span> 
+              return <span className="word" ref={el => {elements.current.push(el as HTMLSpanElement)}} key={uniqueKey()}>{ wordEl }</span> 
             }
           }
         });
@@ -60,7 +60,8 @@ export default function useTextSpanner({children, word = false}:useTextSpanerTyp
       }
       return [];
     }
-    const checkType = (el: string | JSX.Element):JSX.Element[] => {
+    // const checkType = (el: string | JSX.Element):JSX.Element[] => {
+    const checkType = (el:any):JSX.Element[] => {
       // console.log(typeof el);
       // if (typeof el == "string") {
       //   return spanString(el);

@@ -258,69 +258,6 @@ export type FooterDocument<Lang extends string = string> =
   >;
 
 /**
- * Item in *Forms → test*
- */
-export interface FormsDocumentDataTestItem {
-  /**
-   * name field in *Forms → test*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: forms.test[].name
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  name: prismic.KeyTextField;
-
-  /**
-   * Label field in *Forms → test*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: forms.test[].label
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  label: prismic.KeyTextField;
-
-  /**
-   * type field in *Forms → test*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **API ID Path**: forms.test[].type
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  type: prismic.SelectField<"1" | "2">;
-}
-
-/**
- * Content for Forms documents
- */
-interface FormsDocumentData {
-  /**
-   * test field in *Forms*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: forms.test[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  test: prismic.GroupField<Simplify<FormsDocumentDataTestItem>>;
-}
-
-/**
- * Forms document from Prismic
- *
- * - **API ID**: `forms`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type FormsDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<Simplify<FormsDocumentData>, "forms", Lang>;
-
-/**
  * Item in *Header → navigation*
  */
 export interface HeaderDocumentDataNavigationItem {
@@ -584,63 +521,6 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-/**
- * Item in *Navigation → Links*
- */
-export interface NavigationDocumentDataLinksItem {
-  /**
-   * Label field in *Navigation → Links*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: Optional - Label for the link
-   * - **API ID Path**: navigation.links[].label
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  label: prismic.TitleField;
-
-  /**
-   * Link field in *Navigation → Links*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: Link for navigation item
-   * - **API ID Path**: navigation.links[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField;
-}
-
-/**
- * Content for Navigation documents
- */
-interface NavigationDocumentData {
-  /**
-   * Links field in *Navigation*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: navigation.links[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  links: prismic.GroupField<Simplify<NavigationDocumentDataLinksItem>>;
-}
-
-/**
- * Navigation document from Prismic
- *
- * - **API ID**: `navigation`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type NavigationDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<NavigationDocumentData>,
-    "navigation",
-    Lang
-  >;
-
 type PageDocumentDataSlicesSlice =
   | ContactSlice
   | SliderSlice
@@ -784,6 +664,59 @@ export type PageDocument<Lang extends string = string> =
  */
 interface SettingsDocumentData {
   /**
+   * Image field in *Settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.image
+   * - **Tab**: 404
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.title
+   * - **Tab**: 404
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Texte field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.texte
+   * - **Tab**: 404
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  texte: prismic.RichTextField;
+
+  /**
+   * Label field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.label
+   * - **Tab**: 404
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Lien field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.lien
+   * - **Tab**: 404
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  lien: prismic.LinkField /**
    * Site Title field in *Settings*
    *
    * - **Field Type**: Title
@@ -791,8 +724,19 @@ interface SettingsDocumentData {
    * - **API ID Path**: settings.siteTitle
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
+   */;
   siteTitle: prismic.TitleField;
+
+  /**
+   * Favicon field in *Settings*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.favicon
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  favicon: prismic.ImageField<never>;
 
   /**
    * Facebook field in *Settings*
@@ -868,10 +812,8 @@ export type SettingsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | FooterDocument
-  | FormsDocument
   | HeaderDocument
   | HomepageDocument
-  | NavigationDocument
   | PageDocument
   | SettingsDocument;
 
@@ -2130,18 +2072,12 @@ declare module "@prismicio/client" {
       FooterDocumentDataColonne2Item,
       FooterDocumentDataColonne3Item,
       FooterDocumentDataBottomItem,
-      FormsDocument,
-      FormsDocumentData,
-      FormsDocumentDataTestItem,
       HeaderDocument,
       HeaderDocumentData,
       HeaderDocumentDataNavigationItem,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
-      NavigationDocument,
-      NavigationDocumentData,
-      NavigationDocumentDataLinksItem,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,

@@ -37,7 +37,7 @@ export default function GoogleMap({className}:GooglemapType){
 
 
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const AnyReactComponent = ({ texte, lat, lng }:any) => <div>{texte}</div>;
 
 
 // import { Map, GoogleApiWrapper, Marker } from "google-maps-react";

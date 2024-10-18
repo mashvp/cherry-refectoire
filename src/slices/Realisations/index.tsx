@@ -1,5 +1,5 @@
 'use client';
-import { Content } from "@prismicio/client";
+import { asLink, Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import Button from "@/component/navigation/Button";
 import ParrallaxInner from "@/library/image/ParallaxInner";
@@ -49,7 +49,7 @@ const Realisations = ({ slice, index, slices }: RealisationsProps): JSX.Element 
           slice={slice}
           index={3}
           />
-          {(slice.primary.url_lien?.url && (
+          {(asLink(slice.primary.url_lien) && (
             <div className="col-5-9 w-full t-m:col-1-13">
               <Button field={slice.primary.url_lien} type="dark" className="mt-20 w-full">{slice.primary.label_lien}</Button>
             </div>

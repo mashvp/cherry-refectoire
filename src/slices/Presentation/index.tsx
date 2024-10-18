@@ -1,4 +1,4 @@
-import { Content } from "@prismicio/client";
+import { asLink, Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
 import Button from "@/component/navigation/Button";
@@ -28,7 +28,7 @@ const Presentation = ({ slice }: PresentationProps): JSX.Element => {
           </div>
         </div>
         <div className="wrapper gridCtn relative z-10 pt-40  t-m:pb-40">
-          {(slice.primary.url_lien_top?.url && (
+          {(asLink(slice.primary.url_lien_top) && (
             <div className="col-2-12 row-1 ax-center pb-60">
               <Button field={slice.primary.url_lien_top}>{slice.primary.label_lien_top}</Button>
             </div>
@@ -38,7 +38,7 @@ const Presentation = ({ slice }: PresentationProps): JSX.Element => {
             <div className="richtext mb-20">
               <ScrollRichText field={slice.primary.contenu} />
             </div>
-            {(slice.primary.url_lien_top?.url && (
+            {(asLink(slice.primary.url_lien) && (
               <Button field={slice.primary.url_lien}>{slice.primary.label_lien}</Button>
             ))}
           </div>

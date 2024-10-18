@@ -7,7 +7,7 @@ import EmailTemplate from '@/library/contact/EmailTemplate';
 const resend = new Resend(process.env.RESEND);
 
 
-export async function getSettings(): Promise<any> {
+async function getSettings(): Promise<any> {
   const client = createClient();
   const page = await client.getSingle("settings");
   return page;
@@ -25,7 +25,6 @@ export async function POST(request: NextRequest, res:NextResponse) {
   const settings =  await getSettings();
 
   const template = EmailTemplate({data:formData});
-  console.log( settings.data.contact);
 
   try {
     const { data, error } = await resend.emails.send({

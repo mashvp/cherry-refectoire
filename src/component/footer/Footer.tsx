@@ -37,7 +37,7 @@ export default function Footer({data, settings}:any) {
         </div>
         <div className="col-6-8 row-2 t-m:col-1-7 t-m:row-auto">
           <ul>
-          {data.colonne_1.map((item, i) => (
+          {data.colonne_1.map((item:any, i:number) => (
             <li className="mb-16" key={i+item.label}>
               <AnimLink field={item.url}>{item.label}</AnimLink>
             </li>
@@ -46,7 +46,7 @@ export default function Footer({data, settings}:any) {
         </div>
         <div className="col-8-10 row-2 t-m:col-7-13 t-m:row-auto">
           <ul>
-          {data.colonne_2.map((item, i) => (
+          {data.colonne_2.map((item:any, i:number) => (
             <li className="mb-16" key={i+item.label}>
               <AnimLink field={item.url}>{item.label}</AnimLink>
             </li>
@@ -55,7 +55,7 @@ export default function Footer({data, settings}:any) {
         </div>
         <div className="col-10-12 row-2 t-m:col-1-7 t-m:row-auto">
           <ul>
-          {data.colonne_3.map((item, i) => (
+          {data.colonne_3.map((item:any, i:number) => (
             <li className="mb-16" key={i+item.label}>
               <AnimLink field={item.url}>{item.label}</AnimLink>
             </li>
@@ -64,7 +64,7 @@ export default function Footer({data, settings}:any) {
         </div>
         <div className="col-6-12 row-3 t-m:col-7-13 t-m:row-auto">
           <ul className="flex  t-m:block">
-          {data.bottom.map((item, i) => (
+          {data.bottom.map((item:any, i:number) => (
             <li className="mb-16" key={i+item.label}>
               <AnimLink field={item.url}>{item.label}</AnimLink>
             </li>

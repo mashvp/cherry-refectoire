@@ -12,10 +12,13 @@ import useTextSpanner from "./useTextSpanner";
 type childrenType =any
 // type childrenType = string | JSX.Element | JSX.Element[] | (string | JSX.Element)[] | KeyTextField
 
+interface progressType {
+  progress : number
+}
 
 interface TextSpanerType {
   children: childrenType
-  progress: number
+  progress: progressType
   node ?: 'p' | 'h1' | 'h2' | 'h3' | 'div'
   className?: string
   callback?: (el:HTMLSpanElement, progress:number)=>void

@@ -1,5 +1,5 @@
 'use client';
-import { Content } from "@prismicio/client";
+import { asLink, Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
 import Button from "@/component/navigation/Button";
@@ -38,7 +38,7 @@ const BaniereLogo = ({ slice, index, slices }: BaniereLogoProps): JSX.Element =>
         ))}
         </div>
       </TranslateBanner>
-      {(slice.primary.url_lien?.url && (
+      {(asLink(slice.primary.url_lien) && (
         <div className="w-full text-center mt-40">
           <Button field={slice.primary.url_lien} type="dark" className="m-auto">{slice.primary.label_lien}</Button>
         </div>

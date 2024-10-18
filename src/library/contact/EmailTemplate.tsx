@@ -1,7 +1,7 @@
 
 
 
-export default function EmailTemplate({data}) {
+export default function EmailTemplate({data}:any) {
 
 
   // service: 'test_2',

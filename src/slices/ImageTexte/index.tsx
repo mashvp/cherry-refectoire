@@ -3,7 +3,7 @@
 
 import { useEffect, useMemo, useRef } from "react";
 
-import { Content } from "@prismicio/client";
+import { asLink, Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
 import { useScroll } from "@/library/scroll/ScrollContainer";
@@ -70,7 +70,7 @@ const pt = (!prevSlide)? "pt-40" : "pt-200 t-m:pt-40";
           <div className="richtext mt-20">
             <ScrollRichText field={slice.primary.texte} />
           </div>
-          {(slice.primary.url?.url && (
+          {(asLink(slice.primary.url) && (
             <Button field={slice.primary.url} type={colorBtn} className="mt-20">{slice.primary.label}</Button>
           ))}
         </div>

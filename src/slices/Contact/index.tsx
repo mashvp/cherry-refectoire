@@ -24,7 +24,7 @@ export type ContactProps = SliceComponentProps<Content.ContactSlice>;
 /**
  * Component for "Contact" Slices.
  */
-const Contact = ({ slice, context}: ContactProps): JSX.Element => {
+const Contact = ({ slice, context}: any): JSX.Element => {
 
 
   return (
