@@ -76,9 +76,57 @@ switch (process.env.NEXT_PUBLIC_INSTANCE) {
   //===================> REFECTOIRE
   case "refectoire":
 
-    data.colors = {
-      'transparent': 'transparent',
-    };
+    
+  data.colors = {
+    'transparent': 'transparent',
+    'Primary' : '#747D64',
+    'Secondary' : '#F1E64F',
+    'Tertiary' : '#10161A',
+    'ClearPrimary' : '#FFFFFF',
+
+  };
+
+  data.fontFamily = {
+    titre: ['Thorngumbald', 'serif'],
+    base: ['Lucette', 'sans-serif'],
+    cta: ['Thorngumbald', 'sans-serif'],
+  }
+
+  data.fontSize = {
+    hs1: ['var(--fs-hs1)', {
+      lineHeight: '1',
+      letterSpacing: '0',
+      fontWeight: '700',
+    }],
+    hs2: ['var(--fs-hs2)', {
+      lineHeight: '1',
+      letterSpacing: '0',
+      fontWeight: '700',
+      fontFamily: 'Graphik, serif'
+    }],
+    hs3: ['var(--fs-hs3)', {
+      lineHeight: '1',
+      letterSpacing: '0',
+      fontWeight: '700',
+      
+    }],
+    base: ['var(--fs-medium)', {
+      lineHeight: '1.5',
+      letterSpacing: '0',
+      fontWeight: '400',
+    }],
+    small: ['var(--fs-small)', {
+      lineHeight: '1',
+      letterSpacing: '0',
+      fontWeight: '700',
+    }],
+    cta: ['var(--fs-cta)', {
+      lineHeight: '1',
+      letterSpacing: '0',
+      fontWeight: '300',
+    }],
+
+  }
   break;
 
 }
