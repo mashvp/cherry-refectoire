@@ -54,7 +54,7 @@ export async function generateStaticParams() {
 
   const pages = await client.getAllByType("page", {
     lang: "*",
-    filters: [prismic.filter.at("my.page.uid", "home")],
+    filters: [prismic.filter.at("home", "home")],
   });
 
   return pages.map((page) => {
