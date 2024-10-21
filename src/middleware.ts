@@ -1,3 +1,26 @@
+// import { createLocaleRedirect } from "@prismicio/next";
+// import { createClient } from "@/prismicio";
+
+// export async function middleware(request:any) {
+//   const client = createClient();
+//   const redirect = await createLocaleRedirect({ client, request });
+
+//   if (redirect) {
+//     return redirect;
+//   }
+// }
+
+// export const config = {
+//   // Do not localize these paths
+//   matcher: ["/((?!_next|api|slice-simulator|icon.svg).*)"],
+// };
+
+
+
+
+
+
+
 import { NextURL } from "next/dist/server/web/next-url";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -26,7 +49,7 @@ export async function middleware(request:NextRequest) {
 
   // }, 100);
 
-  console.log('go');
+  // console.log('go');
 
 
 }
@@ -36,3 +59,42 @@ export async function middleware(request:NextRequest) {
 export const config = {
   matcher: ["/((?!_next|api|slice-simulator|icon.svg).*)"],
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import createMiddleware from "next-intl/middleware";
+
+// export default createMiddleware({
+//   // A list of all locales that are supported
+//   locales: ["en"],
+
+//   // Used when no locale matches
+//   defaultLocale: "en",
+//   localePrefix: "as-needed",
+// });
+
+// export const config = {
+//   // Match only internationalized pathnames
+//   matcher: [
+//     // Match all pathnames except for
+//     // - … if they start with `/api`, `/_next` or `/_vercel`
+//     // - … the ones containing a dot (e.g. `favicon.ico`)
+//     "/((?!api|_next|_vercel|.*\\..*).*)",
+//   ],
+// };

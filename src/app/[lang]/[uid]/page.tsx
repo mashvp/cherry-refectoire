@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { SliceZone } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
+import * as prismic from "@prismicio/client";
 import HeroPage from "@/component/hero/HeroPage";
 // import { asText } from "@prismicio/client";
 
@@ -60,12 +61,27 @@ export default async function Page({ params }:any)  {
 
 
 
+// export async function generateStaticParams() {
+//   const client = createClient();
+
+//   const pages = await client.getAllByType("page", { lang: '*' });
+//   // console.log(pages)
+//   return pages.map((page) => {
+//     return { slug: page.uid };
+//   });
+// }
 export async function generateStaticParams() {
   const client = createClient();
 
-  const pages = await client.getAllByType("page", { lang: '*' });
+  const pages = await client.getAllByType("page", {
+    lang: "*",
+    filters: [prismic.filter.not("my.page.uid", "home")],
+  });
 
   return pages.map((page) => {
-    return { uid: page.uid };
+    return {
+      uid: page.uid,
+      lang: page.lang,
+    };
   });
 }
