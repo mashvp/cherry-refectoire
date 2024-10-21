@@ -5,6 +5,7 @@ import { useEffect, useRef } from "react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 import { useTransitionState } from "@/library/navigation/TransitionElement";
+import { asLink } from "@prismicio/client";
 import * as prismic from "@prismicio/client";
 import ScrollElement from "@/library/ScrollElement";
 import ScrollRichText from "@/library/text/ScrollRichText";
@@ -106,7 +107,9 @@ export default function HeroHome({data, lottie}:HeroType) {
             <div className="mb-24 richtext">
               <ScrollRichText field={data.contenu} />
             </div>
-            <Button field={data.url_lien}>{data.label_lien}</Button>
+            {(asLink(data.url_lien) && (          
+              <Button field={data.url_lien}>{data.label_lien}</Button>
+            ))}
           </div>
 
         </div>

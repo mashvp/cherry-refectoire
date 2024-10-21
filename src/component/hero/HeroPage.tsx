@@ -6,6 +6,7 @@ import { useState } from "react";
 import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import { useTransitionState } from "@/library/navigation/TransitionElement";
+import { asLink } from "@prismicio/client";
 import AnimatedRichText from "@/library/text/AnimatedRichText";
 import Media from "@/library/image/Media";
 
@@ -42,7 +43,9 @@ export default function HeroPage({data}:HeroType) {
               {/* <PrismicRichText field={data.texte}/> */}
               <AnimatedRichText field={data.texte} active={(state == "idle" || state == "out")} />
             </div>
-            <Button field={data.url_lien}>{data.label_lien}</Button>
+            {(asLink(data.url_lien) && (
+              <Button field={data.url_lien}>{data.label_lien}</Button>
+            ))}
 
           </div>
         </div>

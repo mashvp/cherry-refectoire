@@ -1,5 +1,5 @@
 'use client';
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 
 import { PrismicNextLink, PrismicNextLinkProps } from "@prismicio/next";
@@ -19,6 +19,8 @@ function AnimLink({ field, document, linkResolver, ...restProps },ref,): JSX.Ele
   
 	const href = ("href" in restProps ? restProps.href : computedHref) || "";
 
+  const pathname = usePathname();
+
 	let rel = computedRel;
 	if ("rel" in restProps && typeof restProps.rel !== "function") {
 		rel = restProps.rel;
@@ -29,11 +31,13 @@ function AnimLink({ field, document, linkResolver, ...restProps },ref,): JSX.Ele
 
   const handleClick = (e:any) => {
     e.preventDefault();
-    fn();
-    router.prefetch(href as string);
-    setTimeout(()=>{
-      router.push(href as string);
-    },200)
+    if(pathname != href) {
+      fn();
+      router.prefetch(href as string);
+      setTimeout(()=>{
+        router.push(href as string);
+      },200)
+    }
   }
 
 	return <PrismicNextLink ref={ref} {...attrs} {...restProps} onClick={handleClick} href={href} rel={rel} />;

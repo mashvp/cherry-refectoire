@@ -2,7 +2,7 @@
 import { useMemo, useRef, useState } from "react";
 
 import { AnimLink } from "@/library/navigation/AnimLink";
-import { Content } from "@prismicio/client";
+import { asLink, Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
 import { useLenis, useScroll } from "@/library/scroll/ScrollContainer";
@@ -199,9 +199,11 @@ const Slider = ({ slice }: SliderProps): JSX.Element => {
               
               <ScrollRichText field={item.texte} />
             </div>
-            <div className="col-1-13 row-1 a-center-end mb-100 z-40">
-              <Button className="min-w-400 t-m:min-w-200" field={item.url_lien}>{item.label_lien}</Button>
-            </div>
+            {(asLink(item.url_lien) && (
+              <div className="col-1-13 row-1 a-center-end mb-100 z-40">
+                <Button className="min-w-400 t-m:min-w-200" field={item.url_lien}>{item.label_lien}</Button>
+              </div>
+            ))}
           </div>
         </div>
       ))}
