@@ -7,6 +7,7 @@ import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { AnimLink } from "@/library/navigation/AnimLink";
 import { asLink } from "@prismicio/client";
+import * as prismic from "@prismicio/client";
 import HeroHome from '@/component/hero/HeroHome';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -19,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export const dynamicParams = false;
+// export const dynamicParams = false;
 
 export default async function Page( {params}:any) {
   
@@ -48,24 +49,68 @@ export default async function Page( {params}:any) {
 }
 
 
-
-
 export async function generateStaticParams() {
   const client = createClient();
 
-  // const pages = await client.getAllByType("page", { lang: '*' });
-  // return pages.map((page) => {
-  //   return { uid: page.uid };
-  // });
+  const pages = await client.getAllByType("page", {
+    lang: "*",
+    filters: [prismic.filter.at("my.page.uid", "home")],
+  });
 
-  // const page = await client.getSingle("homepage", {lang:'*'});
-  // return { uid: page.uid };
-
-  // return [{ lang: 'en-US' }]
-
-
-  const repository = await client.getRepository();
-  const locales = repository.languages.map((lang) => {lang:lang.id});  
-  return locales
-
+  return pages.map((page) => {
+    return {
+      lang: page.lang,
+    };
+  });
 }
+
+// export async function generateStaticParams() {
+//   const client = createClient();
+
+//   const pages = await client.getAllByType("page", { lang: '*' });
+  
+//   console.log(pages);
+
+//   // return [];
+
+//   return pages.map((page) => {
+//     return {
+//       lang: page.lang,
+//     };
+//   });
+// }
+
+
+
+// export async function generateStaticParams() {
+//   const client = createClient();
+
+//   // const pages = await client.getAllByType("page", { lang: '*' });
+//   // return pages.map((page) => {
+//   //   return { uid: page.uid };
+//   // });
+
+//   // const page = await client.getSingle("homepage", {lang:'*'});
+//   // return { uid: page.uid };
+
+//   // return [{ lang: 'fr-FR' }]
+//   return [{}]
+//   // return []
+
+
+//   // const repository = await client.getRepository();
+//   // const locales = repository.languages.map((lang) => {lang:lang.id});  
+//   // return locales
+
+// }
+
+
+// export async function generateStaticParams() {
+//   const client = createClient();
+
+//   const pages = await client.getAllByType("page", { lang: '*' });
+
+//   return pages.map((page) => {
+//     return { uid: page.uid };
+//   });
+// }

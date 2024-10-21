@@ -41,3 +41,6 @@ export default async function RootLayout({ children, params:{ lang }}:any) {
 
 
 
+// export async function generateStaticParams() {
+//   return [{lang:"fr-FR"}]
+// }
