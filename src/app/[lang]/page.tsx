@@ -20,7 +20,7 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-// export const dynamicParams = false;
+export const dynamicParams = false;
 
 export default async function Page( {params}:any) {
   
@@ -53,10 +53,10 @@ export async function generateStaticParams() {
   const client = createClient();
 
   const pages = await client.getAllByType("page", {
-    lang: "*",
-    filters: [prismic.filter.at("my.page.uid", "home")],
+    lang: "*"
   });
-
+  
+  // filters: [prismic.filter.at("home", "home")],
   return pages.map((page) => {
     return {
       lang: page.lang,
