@@ -50,3 +50,22 @@ export default async function Page( {params}:any) {
 
 
 
+export async function generateStaticParams() {
+  const client = createClient();
+
+  // const pages = await client.getAllByType("page", { lang: '*' });
+  // return pages.map((page) => {
+  //   return { uid: page.uid };
+  // });
+
+  // const page = await client.getSingle("homepage", {lang:'*'});
+  // return { uid: page.uid };
+
+  // return [{ lang: 'en-US' }]
+
+
+  const repository = await client.getRepository();
+  const locales = repository.languages.map((lang) => {lang:lang.id});  
+  return locales
+
+}

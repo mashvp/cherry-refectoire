@@ -9,7 +9,7 @@ export default async function NotFound({params}:any) {
   const setting = await client.getSingle("settings");
   // const setting = await client.getSingle("settings", {lang:params.lang});
 
-  console.log(setting);
+  // console.log(setting);
 
   return (
     <div className="w-full h-screen relative">
