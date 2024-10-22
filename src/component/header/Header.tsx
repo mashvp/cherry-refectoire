@@ -77,7 +77,10 @@ export default function Header({data, settings}:any) {
 
       <div className="row-1 ay-center z-10">
         <div className="block t-m:hidden">
-          <Geoloc />
+          <AnimLink field={data.url_localisation} className=" uppercase">
+            <Geoloc />
+          </AnimLink>
+
         </div>
         <div
           className="hidden t-m:block"
