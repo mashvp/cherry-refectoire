@@ -190,7 +190,7 @@ const Slider = ({ slice }: SliderProps): JSX.Element => {
             className="absolute-full mediaCtn"
             ref={el=>{imgsRef.current[i] = el as HTMLDivElement}}
             >
-            <PrismicNextImage field={item.image} width={1920} />
+            <PrismicNextImage field={item.image} width={1920}  height={1200} />
           </div>
           <div className="gridCtn wrapper w-full h-full grid">
             <div className="col-8-13 row-1 ay-center z-40 text-ClearPrimary t-m:col-5-13">
