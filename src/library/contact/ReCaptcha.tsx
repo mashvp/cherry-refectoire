@@ -1,49 +1,51 @@
 import Script from "next/script";
-import React from "react";
+import { useEffect, useState } from "react";
 // import { useForm } from "react-hook-form";
 
 export default function ReCaptcha() {
+
+  // const data = use 
   
-  const [captchatoken, setCaptchaToken] = React.useState("");
+  // const [captchatoken, setCaptchaToken] = useState("");
 
-  React.useEffect(() => {
-    setValue("recaptcha_response", captchatoken);
-  });
+  // useEffect(() => {
+  //   setValue("recaptcha_response", captchatoken);
+  // });
 
-  const onSubmit = async (data) => {
-    console.log(data);
+  // const onSubmit = async (data) => {
+  //   console.log(data);
 
-    setResult("Sending....");
-    const formData = new FormData();
+  //   setResult("Sending....");
+  //   const formData = new FormData();
 
-    formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
+  //   formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
 
-    for (const key in data) {
-      if (key === "file") {
-        formData.append(key, data[key][0]);
-      } else {
-        formData.append(key, data[key]);
-      }
-    }
+  //   for (const key in data) {
+  //     if (key === "file") {
+  //       formData.append(key, data[key][0]);
+  //     } else {
+  //       formData.append(key, data[key]);
+  //     }
+  //   }
 
-    // const res = await fetch("https://api.web3forms.com/submit", {
-    //   method: "POST",
-    //   body: formData
-    // }).then((res) => res.json());
+  //   // const res = await fetch("https://api.web3forms.com/submit", {
+  //   //   method: "POST",
+  //   //   body: formData
+  //   // }).then((res) => res.json());
 
-    // if (res.success) {
-    //   console.log("Success", res);
-    //   setResult(res.message);
-    // } else {
-    //   console.log("Error", res);
-    //   setResult(res.message);
-    // }
-  };
+  //   // if (res.success) {
+  //   //   console.log("Success", res);
+  //   //   setResult(res.message);
+  //   // } else {
+  //   //   console.log("Error", res);
+  //   //   setResult(res.message);
+  //   // }
+  // };
 
   return (
     <div className="App">
 
-        <input
+        {/* <input
           type="hidden"
           name="recaptchaResponse"
           id="recaptchaResponse"
@@ -66,7 +68,7 @@ export default function ReCaptcha() {
               });
           });
         }}
-      />
+      /> */}
     </div>
   );
 }
