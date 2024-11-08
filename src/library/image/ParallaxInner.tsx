@@ -10,10 +10,11 @@ interface ParrallaxInnerType {
   className ?: string
   offset?: number
   width?: number
+  height?: number
 }
 
 
-export default function ParrallaxInner({field, className = '', offset = 100, width = 1000}:ParrallaxInnerType) {
+export default function ParrallaxInner({field, className = '', offset = 100, width = 1000, height = 1000}:ParrallaxInnerType) {
 
   const img = useRef<HTMLDivElement>(null);
 
@@ -51,7 +52,7 @@ export default function ParrallaxInner({field, className = '', offset = 100, wid
 
   return (
     <div className={`para ${className}`} ref={img} >
-      <PrismicNextImage field={field}  className="w-full" width={width} />
+      <PrismicNextImage field={field}  className="w-full" width={width} height={height} />
       {/* <img src={field.url} loading="lazy"  className="w-full" /> */}
     </div>
   )

@@ -75,7 +75,7 @@ const Block = ({ classOut, classImg, slice, index }:any) => {
         windowPosition={0.6}
         min={0}
         >
-          <ParrallaxInner field={slice.primary[`image_${index}`]} className="aspect-1 mediaCtn w-full" width={400}/>
+          <ParrallaxInner field={slice.primary[`image_${index}`]} className="aspect-1 mediaCtn w-full" width={400} height={600}/>
       </ScrollElement>
       <TextScroll
         node="h3"

@@ -70,11 +70,11 @@ const pt = (!prevSlide)? "pt-40" : "pt-200 t-m:pt-40";
     const bottomImg = (slice.primary.image_bottom?.url != "")? (
       (slice.primary.lien_image != "")? (
         <a href={slice.primary.lien_image as string} className="block mediaCtn w-full max-w-250 aspect-1 mt-40" target="_blank">
-          <PrismicNextImage field={slice.primary.image_bottom} width={600} />
+          <PrismicNextImage field={slice.primary.image_bottom} width={600} height={600} />
         </a>
       ) : (
         <div className="mediaCtn w-full max-w-250 aspect-1 mt-40">
-          <PrismicNextImage field={slice.primary.image_bottom} width={600} />
+          <PrismicNextImage field={slice.primary.image_bottom} width={600} height={600} />
         </div>
       )
     ) : null;

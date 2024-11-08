@@ -33,7 +33,7 @@ const BaniereLogo = ({ slice, index, slices }: BaniereLogoProps): JSX.Element =>
         <div className="flex flex-nowrap">
         {slice.primary.images.map((item, index) => (
           <div key={index} className="aspect-1 mediaCtn ml-40 w-[280px] t-m:w-200">
-            <PrismicNextImage field={item.image} width={200} />
+            <PrismicNextImage field={item.image} width={200} height={200} />
           </div>
         ))}
         </div>

@@ -43,7 +43,7 @@ const Presentation = ({ slice }: PresentationProps): JSX.Element => {
             ))}
           </div>
           <div className="mediaCtn aspect-[560/860] d-xs:col-6-13 col-6-12 row-2 t-m:col-5-13">
-            <PrismicNextImage field={slice.primary.image} width={800} />
+            <PrismicNextImage field={slice.primary.image} width={800}  height={800} />
           </div>
         </div>
       {/* </div> */}
