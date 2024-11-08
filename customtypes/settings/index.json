@@ -47,13 +47,11 @@
       }
     },
     "Main": {
-      "siteTitle": {
-        "type": "StructuredText",
+      "site_title": {
+        "type": "Text",
         "config": {
           "label": "Site Title",
-          "placeholder": "Title of the site",
-          "allowTargetBlank": false,
-          "single": "heading1"
+          "placeholder": ""
         }
       },
       "favicon": {
@@ -91,12 +89,39 @@
           "label": "Whatsapp",
           "placeholder": ""
         }
-      },
+      }
+    },
+    "Contact": {
       "contact": {
-        "type": "Text",
+        "type": "Group",
         "config": {
           "label": "Contact",
-          "placeholder": ""
+          "repeat": true,
+          "fields": {
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": ""
+              }
+            },
+            "email": {
+              "type": "Text",
+              "config": {
+                "label": "Email",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "rgpd": {
+        "type": "StructuredText",
+        "config": {
+          "label": "RGPD",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,hyperlink"
         }
       }
     }

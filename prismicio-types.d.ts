@@ -153,15 +153,15 @@ interface FooterDocumentData {
   bottom: prismic.GroupField<Simplify<FooterDocumentDataBottomItem>>;
 
   /**
-   * Texte reseaux field in *Footer*
+   * texte_reseaux field in *Footer*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: footer.texte_reseaux
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  texte_reseaux: prismic.KeyTextField;
+  texte_reseaux: prismic.RichTextField;
 
   /**
    * Facebook field in *Footer*
@@ -660,6 +660,31 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 /**
+ * Item in *Settings → Contact*
+ */
+export interface SettingsDocumentDataContactItem {
+  /**
+   * Label field in *Settings → Contact*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.contact[].label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Email field in *Settings → Contact*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.contact[].email
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email: prismic.KeyTextField;
+}
+
+/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -719,13 +744,13 @@ interface SettingsDocumentData {
   lien: prismic.LinkField /**
    * Site Title field in *Settings*
    *
-   * - **Field Type**: Title
-   * - **Placeholder**: Title of the site
-   * - **API ID Path**: settings.siteTitle
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.site_title
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */;
-  siteTitle: prismic.TitleField;
+  site_title: prismic.KeyTextField;
 
   /**
    * Favicon field in *Settings*
@@ -780,18 +805,27 @@ interface SettingsDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  whatsapp: prismic.KeyTextField;
-
-  /**
+  whatsapp: prismic.KeyTextField /**
    * Contact field in *Settings*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: settings.contact
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **API ID Path**: settings.contact[]
+   * - **Tab**: Contact
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */;
+  contact: prismic.GroupField<Simplify<SettingsDocumentDataContactItem>>;
+
+  /**
+   * RGPD field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.rgpd
+   * - **Tab**: Contact
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  contact: prismic.KeyTextField;
+  rgpd: prismic.RichTextField;
 }
 
 /**
@@ -914,16 +948,6 @@ export type BaniereLogoSlice = prismic.SharedSlice<
  */
 export interface ContactSliceDefaultPrimary {
   /**
-   * Mail reception field in *Contact → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: contact.default.primary.mail_reception
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  mail_reception: prismic.KeyTextField;
-
-  /**
    * Texte field in *Contact → Default → Primary*
    *
    * - **Field Type**: Rich Text
@@ -934,24 +958,24 @@ export interface ContactSliceDefaultPrimary {
   texte: prismic.RichTextField;
 
   /**
-   * Cle Google Map field in *Contact → Default → Primary*
+   * Map field in *Contact → Default → Primary*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: contact.default.primary.cle_map
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **API ID Path**: contact.default.primary.map
+   * - **Documentation**: https://prismic.io/docs/field#image
    */
-  cle_map: prismic.KeyTextField;
+  map: prismic.ImageField<never>;
 
   /**
-   * Cle Google recaptcha v3 field in *Contact → Default → Primary*
+   * Lien Gmap field in *Contact → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: contact.default.primary.cle_recaptcha
+   * - **API ID Path**: contact.default.primary.lien_gmap
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  cle_recaptcha: prismic.KeyTextField;
+  lien_gmap: prismic.KeyTextField;
 }
 
 /**
@@ -1799,6 +1823,16 @@ export interface TestSliceDefaultPrimary {
   taille_image: prismic.BooleanField;
 
   /**
+   * Image field in *ImageTexte → Texte Image → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: test.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
    * Titre field in *ImageTexte → Texte Image → Primary*
    *
    * - **Field Type**: Text
@@ -1839,14 +1873,24 @@ export interface TestSliceDefaultPrimary {
   url: prismic.LinkField;
 
   /**
-   * Image field in *ImageTexte → Texte Image → Primary*
+   * Image bottom field in *ImageTexte → Texte Image → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: test.default.primary.image
+   * - **API ID Path**: test.default.primary.image_bottom
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  image: prismic.ImageField<never>;
+  image_bottom: prismic.ImageField<never>;
+
+  /**
+   * Lien Image bottom field in *ImageTexte → Texte Image → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: test.default.primary.lien_image
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  lien_image: prismic.KeyTextField;
 }
 
 /**
@@ -1889,6 +1933,16 @@ export interface TestSliceImageTextePrimary {
   taille_image: prismic.BooleanField;
 
   /**
+   * Image field in *ImageTexte → Image Texte → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: test.imageTexte.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
    * Titre field in *ImageTexte → Image Texte → Primary*
    *
    * - **Field Type**: Text
@@ -1929,14 +1983,24 @@ export interface TestSliceImageTextePrimary {
   url: prismic.LinkField;
 
   /**
-   * Image field in *ImageTexte → Image Texte → Primary*
+   * Image bottom field in *ImageTexte → Image Texte → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: test.imageTexte.primary.image
+   * - **API ID Path**: test.imageTexte.primary.image_bottom
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  image: prismic.ImageField<never>;
+  image_bottom: prismic.ImageField<never>;
+
+  /**
+   * Lien Image bottom field in *ImageTexte → Image Texte → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: test.imageTexte.primary.lien_image
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  lien_image: prismic.KeyTextField;
 }
 
 /**
@@ -2083,6 +2147,7 @@ declare module "@prismicio/client" {
       PageDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
+      SettingsDocumentDataContactItem,
       AllDocumentTypes,
       BaniereLogoSlice,
       BaniereLogoSliceDefaultPrimaryImagesItem,

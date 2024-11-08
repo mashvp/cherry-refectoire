@@ -17,11 +17,12 @@ export default function Button({children, field, className, type = 'clear'}:Butt
   }
   switch (type) {
     case 'clear':
-      clas.result = `${clas.base} text-Tertiary bg-ClearPrimary ${className}`;
+      clas.result = `${clas.base} text-Tertiary bg-ClearPrimary hover:bg-Secondary transition ${className}`;
       break;
     case 'dark':
-      clas.result = `${clas.base} text-ClearPrimary bg-Secondary ${className}`;
+      clas.result = `${clas.base} text-ClearPrimary bg-Tertiary hover:bg-Primary hover:text-ClearPrimary transition ${className}`;
       break;
+
     case 'noColor':
       clas.result = `${clas.base} ${className}`;
       break;

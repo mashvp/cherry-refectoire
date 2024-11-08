@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
+// import { Head } from 'next/document';
 import { Inter } from 'next/font/google'
+// import Head from 'next/head';
 
 import { PrismicPreview } from "@prismicio/next";
 import { createClient, repositoryName } from "@/prismicio";
@@ -23,10 +25,19 @@ export default async function RootLayout({ children, params:{ lang }}:any) {
   const setting = await client.getSingle("settings", {lang:lang});
   const header = await client.getSingle("header", {lang:lang});
 
+
   return (
     <html lang={lang}>
+      <head>
+        {/* <link rel="icon" href={setting.data.favicon.url as string} sizes="any" /> */}
+        <link
+          rel="icon"
+          href={setting.data.favicon.url as string}
+          type="image/<generated>"
+          sizes="<generated>"
+        />
+      </head>
       <body className="">
-
 
         <TransitionElement footerData={footer.data} settingsData={setting.data} headerData={header.data}>
           {children}

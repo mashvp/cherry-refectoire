@@ -29,14 +29,14 @@ export default function Header({data, settings}:any) {
   const statePage = useTransitionState();
 
   
-  const buttonBg = (process.env.NEXT_PUBLIC_INSTANCE == "cherry")? 'bg-Primary ' : 'bg-ClearPrimary';
-  const buttonText = (process.env.NEXT_PUBLIC_INSTANCE == "cherry")? 'text-ClearPrimary ' : 'text-Primary';
+  const buttonBg = (process.env.NEXT_PUBLIC_INSTANCE == "cherry")? 'bg-Primary hover:bg-Tertiary transition' : 'bg-ClearPrimary';
+  const buttonText = (process.env.NEXT_PUBLIC_INSTANCE == "cherry")? 'text-ClearPrimary hover:text-ClearPrimary transition' : 'text-Primary';
   // -- -- -- -- -- -- --  
-  const buttonBgScrolled = (process.env.NEXT_PUBLIC_INSTANCE == "cherry")? 'bg-ClearPrimary ' : 'bg-ClearPrimary';
-  const buttonTextScrolled = (process.env.NEXT_PUBLIC_INSTANCE == "cherry")? 'text-Primary ' : 'text-Primary';
+  const buttonBgScrolled = (process.env.NEXT_PUBLIC_INSTANCE == "cherry")? 'bg-ClearPrimary hover:bg-Primary transition' : 'bg-ClearPrimary';
+  const buttonTextScrolled = (process.env.NEXT_PUBLIC_INSTANCE == "cherry")? 'text-Primary hover:text-ClearPrimary transition' : 'text-Primary';
   // -- -- -- -- -- -- --  
-  const text = (process.env.NEXT_PUBLIC_INSTANCE == "cherry")? 'text-Primary ' : 'text-ClearPrimary';
-  const textScrolled = (process.env.NEXT_PUBLIC_INSTANCE == "cherry")? 'text-ClearPrimary ' : 'text-ClearPrimary';
+  const text = (process.env.NEXT_PUBLIC_INSTANCE == "cherry")? 'text-Primary hover:text-Tertiary transition' : 'text-ClearPrimary';
+  const textScrolled = (process.env.NEXT_PUBLIC_INSTANCE == "cherry")? 'text-ClearPrimary  hover:text-Tertiary transition' : 'text-ClearPrimary';
 
   useEffect(()=>{
     switch (statePage.state) {
@@ -71,19 +71,19 @@ export default function Header({data, settings}:any) {
     <header
       // ref={ctn}
       
-      className={`header-main z-100 fixed w-full h-header text-ClearPrimary pr-40 pl-40 grid grid-cols-header t-m:grid-cols-header-m group ${(scrollState)? `scrolled ${textScrolled}`: text} ${(state)? "open": ""} `}
+      className={`header-main z-100 fixed w-full h-header text-ClearPrimary pr-40 pl-40 grid t-m:grid-cols-header-m group t-m:pr-20 t-m:pl-20  ${(scrollState)? "scrolled": ""} ${(state)? "open": ""}`}
       >
       <div className="bg absolute w-screen bg-Primary "></div>
 
       <div className="row-1 ay-center z-10">
         <div className="block t-m:hidden">
-          <AnimLink field={data.url_localisation} className=" uppercase">
+          <AnimLink field={data.url_localisation} className={`uppercase ${(scrollState || state)? ` ${textScrolled}`: text}`}>
             <Geoloc />
           </AnimLink>
 
         </div>
         <div
-          className="hidden t-m:block"
+          className={`hidden t-m:block ${(scrollState || state)? ` ${textScrolled}`: text}`}
           onClick={()=>{
             setState(!state)
           }}
@@ -94,15 +94,15 @@ export default function Header({data, settings}:any) {
 
       <div className="nav-main flex flex-nowrap row-1 a-center-center gap-40 z-10 text-center t-m:row-2 group-[.open]: t-m:flex-col t-m:col-1-3 t-m:ay-start t-m:w-full t-m:pt-40">
         {data.navigation.map((item:any, i:number) => (
-          <AnimLink key={i} field={item.lien} className=" uppercase">{item.label}</AnimLink>
+          <AnimLink key={i} field={item.lien} className={`uppercase ${(scrollState || state)? ` ${textScrolled}`: text}`}>{item.label}</AnimLink>
         ))}
       </div>
 
       <div className="row-1 a-end-center flex flex-nowrap gap-20 z-10">
-        <a href={settings.instagram} className=" block ay-center" target="_blank">
+        <a href={settings.instagram} className={`block ay-center ${(scrollState || state)? ` ${textScrolled}`: text}`} target="_blank">
           <Instagram/>
         </a>
-        <Button field={data.url_bouton} type="noColor" className={`btnn ${(scrollState)? buttonBgScrolled+' '+buttonTextScrolled : buttonBg+' '+buttonText }`}>{data.label_bouton}</Button>
+        <Button field={data.url_bouton} type="noColor" className={`btnn ${(scrollState || state)? buttonBgScrolled+' '+buttonTextScrolled : buttonBg+' '+buttonText }`}>{data.label_bouton}</Button>
       </div>
 
     </header>

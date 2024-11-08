@@ -52,7 +52,7 @@ const Media = ({ slice }: MediaProps): JSX.Element => {
     >
       {(slice.variation == "default")? (
         <div className="aspect-[1660/880] w-full mediaCtn">
-          <PrismicNextImage field={slice.primary.image} />
+          <PrismicNextImage field={slice.primary.image} width={1920} />
         </div>
         ):(
           <>
@@ -63,7 +63,7 @@ const Media = ({ slice }: MediaProps): JSX.Element => {
           ))}
           <div className=" absolute-full w-full h-full grid z-20" ref={ctnRef}>
             <div className="mediaCtn col-1 row-1 filterDark">
-              <PrismicNextImage field={slice.primary.miniature} />
+              <PrismicNextImage field={slice.primary.miniature} width={1000}/>
             </div>
             <div className="col-1 row-1 a-center-center z-20">
               <p className="hs1 a-center-center text-ClearPrimary cursor-pointer" ref={btnRef}>Lire la video</p>
