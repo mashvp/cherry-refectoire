@@ -72,6 +72,7 @@ export async function POST(request: NextRequest, res:NextResponse) {
     const info = await transporter.sendMail({
       from: `Noreply <noreply@le-refectoire.com/>`,
       to: destination.email,
+      replyTo: `${formData.email}`,
       // to: 'pecou.brice@gmail.com',
       subject: `[${settings.data.site_title}] New message - ${destination.label}`,
       // text: destination.label+' '+destination.email,
