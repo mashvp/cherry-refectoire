@@ -129,7 +129,7 @@ const Image = ({field, className, offset, wPos = 0.5, wLength = 0.5, min = -1}:a
       windowLength={wLength}
       min={min}
       >
-        <ParrallaxInner field={field} className="aspect-1 mediaCtn w-full" width={400}/>
+        <ParrallaxInner field={field} className="aspect-1 mediaCtn w-full" width={400} height={400}/>
     </ScrollElement>
   )
 }
