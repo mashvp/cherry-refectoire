@@ -99,10 +99,12 @@
         }
       },
       "texte_reseaux": {
-        "type": "Text",
+        "type": "StructuredText",
         "config": {
-          "label": "Texte reseaux",
-          "placeholder": ""
+          "label": "texte_reseaux",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "hyperlink"
         }
       },
       "facebook": {

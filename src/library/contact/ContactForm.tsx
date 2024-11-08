@@ -3,6 +3,10 @@
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
+import { PrismicRichText } from "@prismicio/react";
+import { RichTextField } from "@prismicio/client";
+// import { createClient } from "@/prismicio";
+
 import Recaptcha from "./ReCaptcha";
 
 type inputTypeType = 'text'| 'tel' | 'email'|'textarea'|'select';
@@ -24,65 +28,45 @@ interface inputSubDataType {
 
 
 
-const dataForm = [
-  { name: "service", value:"", type:"select", placeholder:"Services", required:true, label:"Services", classWrap:"wide", option: [
-      {
-        value: "test_1",
-        label: "Test 1",
-        selected: false
-      },
-      {
-        value: "test_2",
-        label: "Test 2",
-        selected: true
-      },
-  ]},
-  { name: "prenom", value:"", type:"text", placeholder:"Prenom*", autofocus:true, required:true},
-  { name: "nom", value:"", type:"text", placeholder:"Nom*", required:true},
-  { name: "email", value:"", type:"email", placeholder:"Email*", required:true},
-  { name: "tel", value:"", type:"tel", placeholder:"Tel*", required:true},
-  { name: "profession", value:"", type:"text", placeholder:"Profession*", required:true},
-  { name: "nationalite", value:"", type:"text", placeholder:"Nationnalité"},
-  { name: "adresse", value:"", type:"text", placeholder:"Adresse", classWrap:"wide",},
-  { name: "message", value:"", type:"textarea", placeholder:"Dites nous en plus...", classWrap:"wide", required:true},
-]
-
-
-
-
-
-// async function sendForm() {
-//   const response = await fetch('/api/send');
-//   const data = await response.json();
-//   return data;
-// }
 
 
 interface ContactFormType {
   className?: string
+  dataForm: inputSubDataType[]
+  rgpd: RichTextField
 }
 
 
-export default function ContactForm({className}:ContactFormType) {
+export default function ContactForm({className, dataForm, rgpd}:ContactFormType) {
 
   const [accepted, setAccepted] = useState<string>("disabled");
-  const [inputData, setInputData] = useState<inputSubDataType[]>(dataForm as inputSubDataType[]);
 
+
+  // const [inputData, setInputData] = useState<inputSubDataType[]>(dataForm as inputSubDataType[]);
+  const inputData = useRef(dataForm);
   const [sendState, setSendState] = useState<number>(-1);
   const [loading, setLoading] = useState<boolean>(false);
-
   const [allGood, setAallGood] = useState<string>("disabled");
 
+
   const onCheckInput = (name:string, error:string, value:string) => {
-    // console.log(name, error, value, Object.keys(inputData));
     const obj = {
       name,
       value,
       error: (error == 'noError')? true : false
     };
-    const newInputdata = inputData.map(el=>(el.name == name)? {...el, ...obj} : el);
-    // console.log(newInputdata);
-    setInputData(val => newInputdata);
+
+    const newInputdata = inputData.current.map(el=>(el.name == name)? {...el, ...obj} : el);
+
+    inputData.current = newInputdata;
+
+    const allInput = inputData.current.every(val=>val.error == true);
+    // console.log(allInput, accepted);
+    if (allInput && accepted == "") {
+      setAallGood("");
+    } else {
+      setAallGood("disabled");
+    }
   }
 
   const onAcceptHandler = (event:React.FormEvent<HTMLInputElement>) => {
@@ -108,7 +92,6 @@ export default function ContactForm({className}:ContactFormType) {
 
     formData.forEach((value, key) => object[key] = value);
 
-    // console.log(object);
     const json = JSON.stringify(object);
     const response = await fetch('/api/send', {
       method: 'POST',
@@ -117,17 +100,12 @@ export default function ContactForm({className}:ContactFormType) {
 
     const data = await response.json();
 
-    // console.log(data);
-    // const data = await response.json();
-
-    // setSendState(val=>parseInt(data.state));
+    setSendState(val=>parseInt(data.state));
     setLoading(val=>false);
-
   }, []);
 
   useEffect(()=>{
-    const allInput = inputData.every(val=>val.error == true);
-    // console.log(allInput, accepted);
+    const allInput = inputData.current.every(val=>val.error == true);
     if (allInput && accepted == "") {
       setAallGood("");
     } else {
@@ -143,14 +121,14 @@ export default function ContactForm({className}:ContactFormType) {
     //   >
       <div className={`contactForm ${className}`}>
         <form className="formCtn gap-y-20 gap-x-40" onSubmit={onSubmitHandler}>
-          { inputData.map(el=>(
+          { inputData.current.map(el=>(
             <Input key={el.name} data={el} onChange={onCheckInput} />
             // <Input key={el.id} name={el.name} type={el.type} placeholder={el.placeholder} autofocus={el.autofocus} onChange={onCheckInput} />
           )) }
           {/* <input type="hidden" name="time" value="" /> */}
           <div className="accept col-span-2">
             <input id="accecptCheck" type="checkbox" onChange={onAcceptHandler} required />
-            <label htmlFor="accecptCheck">Lorem ipsum dolor sit amet consectetur. Sit venenatis in dictum facilisi ac egestas ipsum. Vitae augue est nunc lectus facilisis mauris suspendisse imperdiet. Diam dictum integer in gravida pretium aliquet. Scelerisque aliquet at sed proin nibh.</label>
+            <label htmlFor="accecptCheck"><PrismicRichText field={rgpd}/></label>
           </div>
           {/* <Recaptcha onVerify={(token) => {
             console.log('reCAPTCHA Token:', token);

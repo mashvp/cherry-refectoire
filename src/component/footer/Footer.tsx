@@ -16,7 +16,15 @@ export default function Footer({data, settings}:any) {
           <Button field={data.url_lien} className="mt-20">{data.label_lien}</Button>
         </div>
         <div className="col-6-12 t-m:col-1-13 t-m:row-auto">
-          <p className="hs3 mb-20">{data.texte_reseaux}</p>
+          <div className="hs3 mb-20"><PrismicRichText field={data.texte_reseaux}
+          components={{
+            hyperlink: ({ node, children, key }) => {
+              const url = node.data.url;
+              return <a target="_blank" className="text-ClearPrimary hover:text-Secondary underline underline-offset-4 transition" href={url}>{children}</a>
+            }
+          }} />
+          </div>
+          {/*           
           <div className="flex">
             <a href={settings.facebook} className="" target="_blank">
               <Facebook/>
@@ -30,7 +38,7 @@ export default function Footer({data, settings}:any) {
             <a href={settings.whatsapp} className="ml-20" target="_blank">
               <Whatsapp/>
             </a>
-          </div>
+          </div> */}
         </div>
         <div className="col-1-6 row-2-4 t-m:col-1-13 t-m:row-auto">
           <PrismicNextImage field={data.logo} />
