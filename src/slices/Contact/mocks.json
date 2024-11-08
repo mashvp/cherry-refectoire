@@ -3,11 +3,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"mail_reception": {
-				"__TYPE__": "FieldContent",
-				"value": "tune",
-				"type": "Text"
-			},
 			"texte": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
@@ -19,14 +14,32 @@
 					}
 				]
 			},
-			"cle_recaptcha": {
-				"__TYPE__": "FieldContent",
-				"value": "satisfied",
-				"type": "Text"
+			"map": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1547082299-de196ea013d6",
+					"width": 4272,
+					"height": 2848
+				},
+				"url": "https://images.unsplash.com/photo-1547082299-de196ea013d6",
+				"width": 4272,
+				"height": 2848,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
 			},
-			"cle_map": {
+			"lien_gmap": {
 				"__TYPE__": "FieldContent",
-				"value": "country",
+				"value": "leader",
 				"type": "Text"
 			}
 		},

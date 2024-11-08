@@ -262,10 +262,10 @@ export default function TransitionPage({children, footerData, settingsData, head
       </ScrollContainer>
 
       <div className="loadingOverlay">
-        <div className="w-screen h-screen grid content-center justify-center bg-Secondary">
-          <div className="text-ClearPrimary">
+        <div className="w-screen h-screen grid content-center justify-center bg-ClearPrimary">
+          <div className="text-Primary">
             
-            <p className="txt-[30px]">Loading</p>
+            
             <Progress/>
           </div>
         </div>
@@ -300,13 +300,14 @@ function Progress() {
 
 
   return (
-    <div className="progress">
-      <div className="">
+    <div className="progress grid grid-cols-2">
+      <p className="text-[40px] ">Loading</p>
+      <div className="a-end-end">
         <span ref={nbCtn} className="">0</span>
         <span className="">%</span>
         
       </div>
-      <div className="relative h-4 w-[350px] bg-ClearPrimary">
+      <div className="relative h-4 w-full mt-10 bg-Tertiary col-span-2">
         <div ref={progCtn} className="bg-Primary h-4"></div>
       </div>
     </div>

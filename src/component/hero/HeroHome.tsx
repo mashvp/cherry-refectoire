@@ -1,5 +1,6 @@
 'use client'
 import Lottie from "lottie-react";
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
@@ -32,8 +33,8 @@ export default function HeroHome({data, lottie}:HeroType) {
   //   }
   // },[state]);
 
-  console.log(process.env.NEXT_PUBLIC_INSTANCE);
 
+  const nfield = {dimensions:{width:data.media.width, height:data.media.height}, ...data.media};
 
   return (
     <section className="heroHome overflow-hidden">
@@ -48,27 +49,32 @@ export default function HeroHome({data, lottie}:HeroType) {
           <div className="logo col-2-12 row-start-1 t-m:col-1-13">
           <Lottie animationData={lottie} loop={false} />
           </div>
+          {(data.texte_top &&
           <div className={`txt col-2-12 text-center mb-40 t-m:col-1-13 ${(process.env.NEXT_PUBLIC_INSTANCE == "cherry")?'text-Primary': 'text-ClearPrimary'}`}>
             <p>{data.texte_top}</p>
           </div>
-          {/* <div className="col-2-12 mediaCtn aspect-[578/275] mb-[-25%] z-10">
-            <video playsInline autoPlay muted loop className="w-full h-auto mb-[-50%]" src={data.media.url} />
-          </div> */}
-        <ScrollElement
-          classOut="col-2-12 mb-[-25%] z-10 t-m:col-1-13 t-m:-mr-40 t-m:-ml-40"
-          classIn="mediaCtn aspect-[578/275]"
-          callback={(el, prog)=>{
-            // el.style.transform = `scale(${1+prog*0.2})`;
-            // el.style.filter = `blur(${1-prog*6}px)`;
-            // el.style.transform = `translate3d(0, ${prog*28}%, 0)`;
-            el.style.transform = `translate3d(0, ${prog*20}%, 0) scale(${1+prog*0.2})`;
-          }}
-          windowPosition={0.56}
-          windowLength={0.5}
-          max={0}
-          >
-            <video playsInline autoPlay muted loop className="w-full h-auto mb-[-50%]" src={data.media.url} />
-        </ScrollElement>
+          )}
+          {(asLink(data.media) &&
+            <ScrollElement
+              classOut="col-2-12 mb-[-25%] z-10 t-m:col-1-13 t-m:-mr-40 t-m:-ml-40"
+              classIn="mediaCtn aspect-[578/275]"
+              callback={(el, prog)=>{
+                // el.style.transform = `scale(${1+prog*0.2})`;
+                // el.style.filter = `blur(${1-prog*6}px)`;
+                // el.style.transform = `translate3d(0, ${prog*28}%, 0)`;
+                el.style.transform = `translate3d(0, ${prog*20}%, 0) scale(${1+prog*0.2})`;
+              }}
+              windowPosition={0.56}
+              windowLength={0.5}
+              max={0}
+              >
+                {(data.media.kind == 'image')?
+                  <PrismicNextImage field={nfield} className="w-full h-auto mb-[-50%]" width={800} />
+                : 
+                  <video playsInline autoPlay muted loop className="w-full h-auto mb-[-50%]" src={data.media.url} />
+                }
+            </ScrollElement>
+          )}
 
         </div>
       </div>
@@ -85,7 +91,7 @@ export default function HeroHome({data, lottie}:HeroType) {
           selfAnchor={0.5}
           min={0}
           >
-            <PrismicNextImage field={data.image_backgound} className="" />
+            <PrismicNextImage field={data.image_backgound} className="" width={1920} />
         </ScrollElement>
         {/* <div className="mediaCtn absolute-full">
           <PrismicNextImage field={data.image_backgound} />

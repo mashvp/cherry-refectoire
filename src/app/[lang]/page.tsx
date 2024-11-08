@@ -10,9 +10,12 @@ import { asLink } from "@prismicio/client";
 import * as prismic from "@prismicio/client";
 import HeroHome from '@/component/hero/HeroHome';
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({params}:any): Promise<Metadata> {
   const client = createClient();
   const page = await client.getSingle("homepage");
+
+  const setting = await client.getSingle("settings", {lang:params.lang});
+
 
   return {
     title: page.data.meta_title,

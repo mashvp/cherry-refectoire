@@ -29,7 +29,7 @@ const Lieux = ({ slice, index, slices }: LieuxProps): JSX.Element => {
       {slice.primary.localisation.map((item, i) => (
         <div className="col-span-1 row-1 h-60w relative grid t-m:row-[unset]">
           <div className="mediaCtn w-full h-full col-1 row-1">
-            <PrismicNextImage field={item.background} />
+            <PrismicNextImage field={item.background} width={600} />
           </div>
           <div className="col-1 row-1 a-center-center z-10 pr-40 pl-40">
             <TextScroll windowPosition={ 0.5 - (step*i)} className="text-ClearPrimary hs1">{item.titre}</TextScroll>

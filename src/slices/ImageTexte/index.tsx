@@ -54,6 +54,33 @@ const pt = (!prevSlide)? "pt-40" : "pt-200 t-m:pt-40";
  const colorBtn = (slice.primary.background)? "dark" : "clear";
 
 
+//  {(asLink(slice.primary.image_bottom) && slice.primary.lien_image && (
+//   <a href={slice.primary.lien_image} className="block mediaCtn w-full max-w-250 aspect-1 mt-40" target="_blank">
+//     <PrismicNextImage field={slice.primary.image_bottom} />
+//   </a>
+// ))}
+// {(asLink(slice.primary.image_bottom)&& !slice.primary.lien_image && (
+//   <div className="mediaCtn w-full max-w-250 aspect-1 mt-40">
+//     <PrismicNextImage field={slice.primary.image_bottom} />
+//   </div>
+// ))}
+    
+    // asLink(slice.primary.image_bottom)
+    
+    const bottomImg = (slice.primary.image_bottom?.url != "")? (
+      (slice.primary.lien_image != "")? (
+        <a href={slice.primary.lien_image as string} className="block mediaCtn w-full max-w-250 aspect-1 mt-40" target="_blank">
+          <PrismicNextImage field={slice.primary.image_bottom} width={600} />
+        </a>
+      ) : (
+        <div className="mediaCtn w-full max-w-250 aspect-1 mt-40">
+          <PrismicNextImage field={slice.primary.image_bottom} width={600} />
+        </div>
+      )
+    ) : null;
+  
+
+
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -62,7 +89,7 @@ const pt = (!prevSlide)? "pt-40" : "pt-200 t-m:pt-40";
     >
       <div className="wrapper gridCtn gap-y-20">
         <div className={`${side.img} ay-center`}>
-          <PrismicNextImage field={slice.primary.image} />
+          <PrismicNextImage field={slice.primary.image} width={1000} />
         </div>
 
         <div className={`${side.txt} ay-center`}>
@@ -73,6 +100,7 @@ const pt = (!prevSlide)? "pt-40" : "pt-200 t-m:pt-40";
           {(asLink(slice.primary.url) && (
             <Button field={slice.primary.url} type={colorBtn} className="mt-20">{slice.primary.label}</Button>
           ))}
+          {bottomImg}
         </div>
 
       </div>

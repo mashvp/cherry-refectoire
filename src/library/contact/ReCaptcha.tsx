@@ -1,21 +1,73 @@
-   // components/Recaptcha.js
-   import { useEffect } from 'react';
-   import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import Script from "next/script";
+import React from "react";
+// import { useForm } from "react-hook-form";
 
-   const Recaptcha = ({ onVerify }:any) => {
-     const { executeRecaptcha } = useGoogleReCaptcha();
+export default function ReCaptcha() {
+  
+  const [captchatoken, setCaptchaToken] = React.useState("");
 
-     useEffect(() => {
-       const verifyCallback = async () => {
-         if (executeRecaptcha) {
-           const token = await executeRecaptcha();
-           onVerify(token); // Send token to backend or handle verification here
-         }
-       };
-       verifyCallback();
-     }, [executeRecaptcha, onVerify]);
+  React.useEffect(() => {
+    setValue("recaptcha_response", captchatoken);
+  });
 
-     return null; // This component doesn't render anything visible in the DOM
-   };
+  const onSubmit = async (data) => {
+    console.log(data);
 
-   export default Recaptcha;
+    setResult("Sending....");
+    const formData = new FormData();
+
+    formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
+
+    for (const key in data) {
+      if (key === "file") {
+        formData.append(key, data[key][0]);
+      } else {
+        formData.append(key, data[key]);
+      }
+    }
+
+    // const res = await fetch("https://api.web3forms.com/submit", {
+    //   method: "POST",
+    //   body: formData
+    // }).then((res) => res.json());
+
+    // if (res.success) {
+    //   console.log("Success", res);
+    //   setResult(res.message);
+    // } else {
+    //   console.log("Error", res);
+    //   setResult(res.message);
+    // }
+  };
+
+  return (
+    <div className="App">
+
+        <input
+          type="hidden"
+          name="recaptchaResponse"
+          id="recaptchaResponse"
+        />
+   
+
+      <Script
+        id="recaptcha-load"
+        strategy="lazyOnload"
+        src={`https://www.google.com/recaptcha/api.js?render=RECAPTCHA_SITE_KEY`}
+        onLoad={() => {
+          grecaptcha.ready(function () {
+            grecaptcha
+              .execute("RECAPTCHA_SITE_KEY", {
+                action: "contact"
+              })
+              .then(function (token) {
+                //console.log(token);
+                setCaptchaToken(token);
+              });
+          });
+        }}
+      />
+    </div>
+  );
+}
+
