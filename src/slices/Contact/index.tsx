@@ -41,7 +41,7 @@ async function getDataForm(): Promise<any> {
     { name: "prenom", value:"", type:"text", placeholder:"Prenom*", autofocus:true, required:true},
     { name: "nom", value:"", type:"text", placeholder:"Nom*", required:true},
     { name: "email", value:"", type:"email", placeholder:"Email*", required:true},
-    { name: "tel", value:"", type:"tel", placeholder:"Tel*", required:true},
+    { name: "tel", value:"", type:"tel", placeholder:"Tel", required:false},
     // { name: "profession", value:"", type:"text", placeholder:"Profession*", required:true},
     // { name: "nationalite", value:"", type:"text", placeholder:"Nationnalité"},
     // { name: "adresse", value:"", type:"text", placeholder:"Adresse", classWrap:"wide",},

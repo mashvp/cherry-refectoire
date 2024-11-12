@@ -19,6 +19,15 @@
             "placeholder": ""
           }
         },
+        "image_full": {
+          "type": "Boolean",
+          "config": {
+            "label": "Image complete",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        },
         "images": {
           "type": "Group",
           "config": {

@@ -1,6 +1,7 @@
 import { PrismicRichText } from "@prismicio/react"
 import { PrismicNextImage } from "@prismicio/next"
 import { AnimLink } from "@/library/navigation/AnimLink"
+import { asText } from "@prismicio/client";
 
 import Button from "../navigation/Button"
 import { Facebook, Instagram, Linkedin, Whatsapp } from "../icons";
@@ -16,6 +17,7 @@ export default function Footer({data, settings}:any) {
           <Button field={data.url_lien} className="mt-20">{data.label_lien}</Button>
         </div>
         <div className="col-6-12 t-m:col-1-13 t-m:row-auto">
+          {(asText(data.texte_reseaux) && 
           <div className="hs3 mb-20"><PrismicRichText field={data.texte_reseaux}
           components={{
             hyperlink: ({ node, children, key }) => {
@@ -24,6 +26,7 @@ export default function Footer({data, settings}:any) {
             }
           }} />
           </div>
+          )}
           {/*           
           <div className="flex">
             <a href={settings.facebook} className="" target="_blank">

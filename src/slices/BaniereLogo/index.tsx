@@ -26,14 +26,16 @@ const BaniereLogo = ({ slice, index, slices }: BaniereLogoProps): JSX.Element =>
       data-slice-variation={slice.variation}
       className={`pb-40 ${pt} bg-ClearPrimary`}
     >
-      <div className="w-full text-center mb-40 text-Tertiary">
-        <TextScroll node="h2" className="hs2">{slice.primary.titre}</TextScroll>
-      </div>
+      {(slice.primary.titre && 
+        <div className="w-full text-center mb-40 text-Tertiary">
+          <TextScroll node="h2" className="hs2">{slice.primary.titre}</TextScroll>
+        </div>
+      )}
       <TranslateBanner speed={0.8} >
         <div className="flex flex-nowrap">
         {slice.primary.images.map((item, index) => (
-          <div key={index} className="aspect-1 mediaCtn ml-40 w-[280px] t-m:w-200">
-            <PrismicNextImage field={item.image} width={200} height={200} />
+          <div key={index} className={`aspect-1 mediaCtn ml-40 w-[280px] t-m:w-200`}>
+            <PrismicNextImage field={item.image} width={200} height={200} className={`${(slice.primary.image_full)? "!object-contain": "!object-cover"}`} />
           </div>
         ))}
         </div>
