@@ -881,6 +881,17 @@ export interface BaniereLogoSliceDefaultPrimary {
   titre: prismic.KeyTextField;
 
   /**
+   * Image complete field in *BaniereLogo → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: baniere_logo.default.primary.image_full
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  image_full: prismic.BooleanField;
+
+  /**
    * Images field in *BaniereLogo → Default → Primary*
    *
    * - **Field Type**: Group

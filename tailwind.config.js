@@ -79,7 +79,7 @@ switch (process.env.NEXT_PUBLIC_INSTANCE) {
     
   data.colors = {
     'transparent': 'transparent',
-    'Primary' : '#747D64',
+    'Primary' : '#909577',//'#747D64',
     'Secondary' : '#F1E64F',
     'Tertiary' : '#10161A',
     'ClearPrimary' : '#FFFFFF',
