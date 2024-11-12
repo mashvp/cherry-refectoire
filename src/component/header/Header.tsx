@@ -6,6 +6,7 @@ import { create } from "zustand";
 import { AnimLink } from "@/library/navigation/AnimLink";
 import { useScroll } from "@/library/scroll/ScrollContainer";
 import { useTransitionState } from "@/library/navigation/TransitionElement";
+import { PrismicNextLink } from "@prismicio/next";
 
 import Button from "../navigation/Button";
 import { CallMenu, Geoloc, Instagram } from "../icons";
@@ -102,7 +103,8 @@ export default function Header({data, settings}:any) {
         <a href={settings.instagram} className={`block ay-center ${(scrollState || state)? ` ${textScrolled}`: text}`} target="_blank">
           <Instagram/>
         </a>
-        <Button field={data.url_bouton} type="noColor" className={`btnn ${(scrollState || state)? buttonBgScrolled+' '+buttonTextScrolled : buttonBg+' '+buttonText }`}>{data.label_bouton}</Button>
+        <PrismicNextLink field={data.url_bouton} className={`block p-16 pr-24 pl-24 rounded-4 uppercase text-cta text-center w-fit min-w-200 whitespace-nowrap btnn ${(scrollState || state)? buttonBgScrolled+' '+buttonTextScrolled : buttonBg+' '+buttonText }`} target="_blank">{data.label_bouton}</PrismicNextLink>
+        {/* <Button field={data.url_bouton} type="noColor" className={`btnn ${(scrollState || state)? buttonBgScrolled+' '+buttonTextScrolled : buttonBg+' '+buttonText }`}>{data.label_bouton}</Button> */}
       </div>
 
     </header>

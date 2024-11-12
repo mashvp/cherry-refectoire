@@ -55,6 +55,10 @@
 					"__TYPE__": "ExternalLink",
 					"url": "https://prismic.io"
 				}
+			},
+			"image_full": {
+				"__TYPE__": "BooleanContent",
+				"value": false
 			}
 		},
 		"items": []
