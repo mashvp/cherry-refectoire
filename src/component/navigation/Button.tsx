@@ -1,14 +1,16 @@
 import { KeyTextField } from "@prismicio/client";
 import { AnimLink } from "@/library/navigation/AnimLink";
+import { PrismicNextLink } from "@prismicio/next";
 
 interface ButtonType {
   children: JSX.Element | KeyTextField | string,
   className?: string
   field: any
   type?: 'raw' | 'clear' | 'dark'| 'noColor'; 
+  target?: null | '_blank'
 }
 
-export default function Button({children, field, className, type = 'clear'}:ButtonType) {
+export default function Button({children, field, className, type = 'clear', target}:ButtonType) {
 
   // const clas = `block p-8 pr-24 pl-24 rounded-4 uppercase text-cta text-center bg-ClearPrimary w-fit min-w-200 text-Tertiary whitespace-nowrap ${className}`;
   const clas = {
@@ -17,7 +19,7 @@ export default function Button({children, field, className, type = 'clear'}:Butt
   }
   switch (type) {
     case 'clear':
-      clas.result = `${clas.base} text-Tertiary bg-ClearPrimary hover:bg-Secondary transition ${className}`;
+      clas.result = `${clas.base} text-Tertiary bg-ClearPrimary hover:bg-Tertiary hover:text-ClearPrimary transition ${className}`;
       break;
     case 'dark':
       clas.result = `${clas.base} text-ClearPrimary bg-Tertiary hover:bg-Primary hover:text-ClearPrimary transition ${className}`;
@@ -28,11 +30,15 @@ export default function Button({children, field, className, type = 'clear'}:Butt
       break;
   }
 
-  return (
+  return ((target != '_blank')?(
     <AnimLink className={clas.result} field={field}>
       {children}
     </AnimLink>
-
+  ):(
+    <PrismicNextLink field={field} className={clas.result} target="_blank">
+      {children}
+    </PrismicNextLink>
+  )
   )
 }
 

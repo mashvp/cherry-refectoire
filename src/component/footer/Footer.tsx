@@ -22,7 +22,7 @@ export default function Footer({data, settings}:any) {
           components={{
             hyperlink: ({ node, children, key }) => {
               const url = node.data.url;
-              return <a target="_blank" className="text-ClearPrimary hover:text-Secondary underline underline-offset-4 transition" href={url}>{children}</a>
+              return <a target="_blank" className="text-ClearPrimary hover:text-Tertiary underline underline-offset-4 transition" href={url}>{children}</a>
             }
           }} />
           </div>
