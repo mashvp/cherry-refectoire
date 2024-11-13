@@ -124,7 +124,7 @@ export default function HeroHome({data, lottie}:HeroType) {
               <ScrollRichText field={data.contenu} />
             </div>
             {(asLink(data.url_lien) && (          
-              <Button field={data.url_lien}>{data.label_lien}</Button>
+              <Button field={data.url_lien} target="_blank">{data.label_lien}</Button>
             ))}
           </div>
 

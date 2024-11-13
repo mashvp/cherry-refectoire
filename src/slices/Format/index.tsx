@@ -145,7 +145,7 @@ const Text = ({field, index, class1, class2, class3,  wPos = 0.5, wLength = 0.15
     <>
       <TextScroll
         // node="h3"
-        className={`${class1} base h-min z-10 whitespace-nowrap`}
+        className={`${class1} hs2 h-min z-10 whitespace-nowrap`}
         windowPosition={wPos}
         windowLength={wLength}
         >
@@ -153,7 +153,7 @@ const Text = ({field, index, class1, class2, class3,  wPos = 0.5, wLength = 0.15
       </TextScroll>
       <TextScroll
         // node="h3"
-        className={`${class2} base h-min z-10 whitespace-nowrap`}
+        className={`${class2} hs2 h-min z-10 whitespace-nowrap`}
 
         windowPosition={wPos-0.045}
         windowLength={wLength}

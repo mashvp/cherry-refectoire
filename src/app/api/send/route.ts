@@ -70,7 +70,7 @@ export async function POST(request: NextRequest, res:NextResponse) {
 
   try {
     const info = await transporter.sendMail({
-      from: `Noreply <noreply@le-refectoire.com/>`,
+      from: `Noreply <noreply@cherrybomb-catering.com/>`,
       to: destination.email,
       replyTo: `${formData.email}`,
       // to: 'pecou.brice@gmail.com',

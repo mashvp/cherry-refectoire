@@ -33,7 +33,7 @@ export default function Header({data, settings}:any) {
   const buttonBg = (process.env.NEXT_PUBLIC_INSTANCE == "cherry")? 'bg-Primary hover:bg-Tertiary transition' : 'bg-ClearPrimary';
   const buttonText = (process.env.NEXT_PUBLIC_INSTANCE == "cherry")? 'text-ClearPrimary hover:text-ClearPrimary transition' : 'text-Primary';
   // -- -- -- -- -- -- --  
-  const buttonBgScrolled = (process.env.NEXT_PUBLIC_INSTANCE == "cherry")? 'bg-ClearPrimary hover:bg-Primary transition' : 'bg-ClearPrimary';
+  const buttonBgScrolled = (process.env.NEXT_PUBLIC_INSTANCE == "cherry")? 'bg-ClearPrimary hover:bg-Tertiary transition' : 'bg-ClearPrimary';
   const buttonTextScrolled = (process.env.NEXT_PUBLIC_INSTANCE == "cherry")? 'text-Primary hover:text-ClearPrimary transition' : 'text-Primary';
   // -- -- -- -- -- -- --  
   const text = (process.env.NEXT_PUBLIC_INSTANCE == "cherry")? 'text-Primary hover:text-Tertiary transition' : 'text-ClearPrimary';
