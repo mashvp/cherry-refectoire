@@ -107,27 +107,6 @@
           "single": "hyperlink"
         }
       },
-      "facebook": {
-        "type": "Text",
-        "config": {
-          "label": "Facebook",
-          "placeholder": ""
-        }
-      },
-      "linkedin": {
-        "type": "Text",
-        "config": {
-          "label": "Linkedin",
-          "placeholder": ""
-        }
-      },
-      "instagram": {
-        "type": "Text",
-        "config": {
-          "label": "Instagram",
-          "placeholder": ""
-        }
-      },
       "texte": {
         "type": "StructuredText",
         "config": {

@@ -9,7 +9,7 @@ import { useTransitionState } from "@/library/navigation/TransitionElement";
 import { PrismicNextLink } from "@prismicio/next";
 
 import Button from "../navigation/Button";
-import { CallMenu, Geoloc, Instagram } from "../icons";
+import { CallMenu, Geoloc, Instagram, Whatsapp } from "../icons";
 
 interface HeaderStateType {
   state: boolean
@@ -99,9 +99,12 @@ export default function Header({data, settings}:any) {
         ))}
       </div>
 
-      <div className="row-1 a-end-center flex flex-nowrap gap-20 z-10">
+      <div className="row-1 a-end-center flex flex-nowrap gap-20 z-10 t-m:gap-5">
         <a href={settings.instagram} className={`block ay-center ${(scrollState || state)? ` ${textScrolled}`: text}`} target="_blank">
           <Instagram/>
+        </a>
+        <a href={settings.whatsapp} className={`block ay-center ${(scrollState || state)? ` ${textScrolled}`: text}`} target="_blank">
+          <Whatsapp/>
         </a>
         <PrismicNextLink field={data.url_bouton} className={`block p-16 pr-24 pl-24 rounded-4 uppercase text-cta text-center w-fit min-w-200 whitespace-nowrap btnn ${(scrollState || state)? buttonBgScrolled+' '+buttonTextScrolled : buttonBg+' '+buttonText }`} target="_blank">{data.label_bouton}</PrismicNextLink>
         {/* <Button field={data.url_bouton} type="noColor" className={`btnn ${(scrollState || state)? buttonBgScrolled+' '+buttonTextScrolled : buttonBg+' '+buttonText }`}>{data.label_bouton}</Button> */}
