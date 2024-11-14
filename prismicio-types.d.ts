@@ -164,39 +164,6 @@ interface FooterDocumentData {
   texte_reseaux: prismic.RichTextField;
 
   /**
-   * Facebook field in *Footer*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.facebook
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  facebook: prismic.KeyTextField;
-
-  /**
-   * Linkedin field in *Footer*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.linkedin
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  linkedin: prismic.KeyTextField;
-
-  /**
-   * Instagram field in *Footer*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.instagram
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  instagram: prismic.KeyTextField;
-
-  /**
    * Texte field in *Footer*
    *
    * - **Field Type**: Rich Text
