@@ -150,12 +150,12 @@ img {
 
 .wrapper {
   margin: 0 auto;
-  max-width: 1600px;
-  width: 100%;
+  max-width: 1500px;
+  width: 90%;
   // @media screen and (max-width: 1680px) {
-  @screen d-m {
-    width: 90%;
-  }
+  // @screen d-m {
+  //   width: 90%;
+  // }
   @screen t-m {
     width: calc(100% - 40px);
   }
