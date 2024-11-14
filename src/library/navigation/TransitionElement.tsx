@@ -301,7 +301,7 @@ function Progress() {
 
   return (
     <div className="progress grid grid-cols-2">
-      <p className="text-[40px] ">Loading</p>
+      <p className=" hs1 ">Loading</p>
       <div className="a-end-end">
         <span ref={nbCtn} className="">0</span>
         <span className="">%</span>
