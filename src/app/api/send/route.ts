@@ -46,7 +46,7 @@ export async function POST(request: NextRequest, res:NextResponse) {
   const transporter = nodemailer.createTransport({
     host: SMTP_SERVER_HOST,
     port: Number(SMTP_SERVER_PORT),
-    secure: false,
+    secure: true,
     auth: {
       user: SMTP_SERVER_USERNAME,
       pass: SMTP_SERVER_PASSWORD,
@@ -70,12 +70,10 @@ export async function POST(request: NextRequest, res:NextResponse) {
 
   try {
     const info = await transporter.sendMail({
-      from: `Noreply <noreply@cherrybomb-catering.com/>`,
+      from: `Noreply <noreply@cherrybomb-catering.com>`,
       to: destination.email,
       replyTo: `${formData.email}`,
-      // to: 'pecou.brice@gmail.com',
-      subject: `[${settings.data.site_title}] New message - ${destination.label}`,
-      // text: destination.label+' '+destination.email,
+      subject: `[${settings.data.site_title}] Nouveau message - ${destination.label}`,
       html:template
     });
     return NextResponse.json({state:1});
