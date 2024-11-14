@@ -99,7 +99,7 @@ const Contact = async ({ slice, context}: any) => {
             )}
           </div>
           <a href={slice.primary.lien_gmap} className='block w-full aspect-1 mt-40 mediaCtn' target="_blank">
-            <PrismicNextImage field={slice.primary.map} width={300} className="w-full"/>
+            <PrismicNextImage field={slice.primary.map} width={600} className="w-full"/>
           </a>
           {/* <GoogleMaps className='w-full aspect-1 mt-40' points={markers} /> */}
         </div>
