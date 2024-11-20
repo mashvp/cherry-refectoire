@@ -30,7 +30,7 @@ export default function HeroHome({data, lottie}:HeroType) {
   const {state} = useTransitionState();
 
   useEffect(()=>{
-    if (state == "idle" ) {
+    if (state == "idle" || state == "out") {
       if (lottieRef.current) {
         (lottieRef.current as HTMLVideoElement).play();
       }
