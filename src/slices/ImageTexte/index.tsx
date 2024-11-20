@@ -3,7 +3,7 @@
 
 import { useEffect, useMemo, useRef } from "react";
 
-import { asLink, Content } from "@prismicio/client";
+import { asLink, Content, isFilled } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
 import { useScroll } from "@/library/scroll/ScrollContainer";
@@ -67,8 +67,8 @@ const pt = (!prevSlide)? "pt-40" : "pt-200 t-m:pt-40";
     
     // asLink(slice.primary.image_bottom)
     
-    const bottomImg = (slice.primary.image_bottom?.url != "")? (
-      (slice.primary.lien_image != "")? (
+    const bottomImg = (isFilled.image(slice.primary.image_bottom))? (
+      (isFilled.keyText(slice.primary.lien_image) )? (
         <a href={slice.primary.lien_image as string} className="block mediaCtn w-full max-w-250 aspect-1 mt-40" target="_blank">
           <PrismicNextImage field={slice.primary.image_bottom} width={600} height={600} />
         </a>
