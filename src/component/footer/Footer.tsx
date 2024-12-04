@@ -76,7 +76,7 @@ export default function Footer({data, settings}:any) {
         <div className="col-6-12 row-3 t-m:col-7-13 t-m:row-auto">
           <ul className="flex  t-m:block">
           {data.bottom.map((item:any, i:number) => (
-            <li className="mb-16" key={i+item.label}>
+            <li className="mr-16 t-m:mb-16 t-m:mr-0" key={i+item.label}>
               <AnimLink field={item.url}>{item.label}</AnimLink>
             </li>
           ))}
