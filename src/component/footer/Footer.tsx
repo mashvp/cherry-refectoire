@@ -80,6 +80,9 @@ export default function Footer({data, settings}:any) {
               <AnimLink field={item.url}>{item.label}</AnimLink>
             </li>
           ))}
+            <li>
+              <a href="https://mashvp.com" target="_blank">by Mashvp</a>
+            </li>
           </ul>
         </div>
 
