@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /preview
+Disallow: /api
+Disallow: /graphql
+Allow: /
+
+Sitemap: https://cherrybomb-catering.com/sitemap.xml
