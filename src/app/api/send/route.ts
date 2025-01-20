@@ -72,7 +72,7 @@ export async function POST(request: NextRequest, res:NextResponse) {
 
   
 
-  await sendEmail(transporter, destination, formData, settings, template)
+  return await sendEmail(transporter, destination, formData, settings, template)
 
   // try {
   //   await new Promise<void>((resolve, reject) => {
