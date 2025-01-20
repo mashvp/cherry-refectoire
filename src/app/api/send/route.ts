@@ -39,6 +39,8 @@ export async function POST(request: NextRequest, res:NextResponse) {
   
   const destination = getContact(settings, formData);
 
+  console.log(destination);
+
   formData.service = destination.label;
   
   const template = await EmailTemplate({data:formData});
@@ -69,12 +71,15 @@ export async function POST(request: NextRequest, res:NextResponse) {
   }
 
   try {
-    const info = await transporter.sendMail({
-      from: `Noreply <noreply@cherrybomb-catering.com>`,
-      to: destination.email,
-      replyTo: `${formData.email}`,
-      subject: `[${settings.data.site_title}] Nouveau message - ${destination.label}`,
-      html:template
+    await new Promise<void>((resolve, reject) => {
+      const info =  transporter.sendMail({
+        from: `Noreply <noreply@cherrybomb-catering.com>`,
+        to: destination.email,
+        replyTo: `${formData.email}`,
+        subject: `[${settings.data.site_title}] Nouveau message - ${destination.label}`,
+        html:template
+      });
+      resolve(); 
     });
     return NextResponse.json({state:1});
   } catch (error) {
