@@ -97,7 +97,7 @@ export async function POST(request: NextRequest, res:NextResponse) {
 
 
 
-export const sendEmail = async (transporter:any, destination:any, formData:any, settings:any, template:any) => {
+const sendEmail = async (transporter:any, destination:any, formData:any, settings:any, template:any) => {
   try {
     const info = await transporter.sendMail({
       from: `Noreply <noreply@cherrybomb-catering.com>`,
