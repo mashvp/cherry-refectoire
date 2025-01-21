@@ -39,6 +39,8 @@ export async function POST(request: NextRequest, res:NextResponse) {
   
   const destination = getContact(settings, formData);
 
+  console.log(destination);
+
   formData.service = destination.label;
   
   const template = await EmailTemplate({data:formData});
@@ -68,6 +70,34 @@ export async function POST(request: NextRequest, res:NextResponse) {
     return Response.json({error, state:0  });
   }
 
+  
+
+  return await sendEmail(transporter, destination, formData, settings, template)
+
+  // try {
+  //   await new Promise<void>((resolve, reject) => {
+  //     const info =  transporter.sendMail({
+  //       from: `Noreply <noreply@cherrybomb-catering.com>`,
+  //       to: destination.email,
+  //       replyTo: `${formData.email}`,
+  //       subject: `[${settings.data.site_title}] Nouveau message - ${destination.label}`,
+  //       html:template
+  //     });
+  //     resolve(); 
+  //   });
+  //   return NextResponse.json({state:1});
+  // } catch (error) {
+  //   // console.error('Something Went Wrong', error);
+  //   // return JSON.stringify(error);
+  //   return Response.json({ error, state:0 });
+  // }
+  
+
+}
+
+
+
+const sendEmail = async (transporter:any, destination:any, formData:any, settings:any, template:any) => {
   try {
     const info = await transporter.sendMail({
       from: `Noreply <noreply@cherrybomb-catering.com>`,
@@ -75,18 +105,17 @@ export async function POST(request: NextRequest, res:NextResponse) {
       replyTo: `${formData.email}`,
       subject: `[${settings.data.site_title}] Nouveau message - ${destination.label}`,
       html:template
-    });
+    })
+
+    console.log('Email sent: ' + info.response)
     return NextResponse.json({state:1});
+
   } catch (error) {
-    // console.error('Something Went Wrong', error);
-    // return JSON.stringify(error);
-    return Response.json({ error, state:0 });
+    console.error('Error sending email: ', error)
+  return Response.json({ error, state:0 });
+
   }
-  
-
 }
-
-
 
 
 
