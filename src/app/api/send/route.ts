@@ -100,7 +100,7 @@ export async function POST(request: NextRequest, res:NextResponse) {
 const sendEmail = async (transporter:any, destination:any, formData:any, settings:any, template:any) => {
   try {
     const info = await transporter.sendMail({
-      from: `Noreply <noreply@cherrybomb-catering.com>`,
+      from: `Noreply <noreply@mashvp.com>`,
       to: destination.email,
       replyTo: `${formData.email}`,
       subject: `[${settings.data.site_title}] Nouveau message - ${destination.label}`,
