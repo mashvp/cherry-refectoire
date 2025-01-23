@@ -10,10 +10,6 @@ import EmailTemplate from '@/library/contact/EmailTemplate';
 import nodemailer from 'nodemailer';
 // import { renderToStaticMarkup } from 'react-dom/server';
 
-const SMTP_SERVER_HOST = process.env.SMTP_SERVER_HOST;
-const SMTP_SERVER_PORT = process.env.SMTP_SERVER_PORT;
-const SMTP_SERVER_USERNAME = process.env.SMTP_SERVER_USERNAME;
-const SMTP_SERVER_PASSWORD = process.env.SMTP_SERVER_PASSWORD;
 
 
 
@@ -33,13 +29,19 @@ function getContact(settings:any, formData:any) {
 }
 
 export async function POST(request: NextRequest, res:NextResponse) {
+
+  const SMTP_SERVER_HOST = process.env.SMTP_SERVER_HOST;
+  const SMTP_SERVER_PORT = process.env.SMTP_SERVER_PORT;
+  const SMTP_SERVER_USERNAME = process.env.SMTP_SERVER_USERNAME;
+  const SMTP_SERVER_PASSWORD = process.env.SMTP_SERVER_PASSWORD;
+
   const formData = await request.json();
 
   const settings = await getSettings();
   
   const destination = getContact(settings, formData);
 
-  console.log(destination);
+  console.log(process.env.SMTP_SERVER_USERNAME);
 
   formData.service = destination.label;
   
@@ -49,6 +51,7 @@ export async function POST(request: NextRequest, res:NextResponse) {
     host: SMTP_SERVER_HOST,
     port: Number(SMTP_SERVER_PORT),
     secure: true,
+    // service: 'gmail',
     auth: {
       user: SMTP_SERVER_USERNAME,
       pass: SMTP_SERVER_PASSWORD,
@@ -67,12 +70,30 @@ export async function POST(request: NextRequest, res:NextResponse) {
   } catch (error) {
     // console.error('Something Went Wrong', error);
     // return JSON.stringify('Something Went Wrong');
-    return Response.json({error, state:0  });
+    console.log(error);
+    return Response.json({error, state:3  });
   }
 
+  try {
+    const info = await transporter.sendMail({
+      from: `Noreply <${SMTP_SERVER_USERNAME}>`,
+      to: destination.email,
+      replyTo: `${formData.email}`,
+      subject: `[${settings.data.site_title}] Nouveau message - ${destination.label}`,
+      html:template
+    })
+
+    console.log('Email sent: ' + info.response)
+    return NextResponse.json({state:1});
+
+  } catch (error) {
+    console.error('Error sending email: ', error)
+  return Response.json({ error, state:0 });
+
+  }
   
 
-  return await sendEmail(transporter, destination, formData, settings, template)
+  // return await sendEmail(transporter, destination, formData, settings, template)
 
   // try {
   //   await new Promise<void>((resolve, reject) => {
@@ -97,25 +118,25 @@ export async function POST(request: NextRequest, res:NextResponse) {
 
 
 
-const sendEmail = async (transporter:any, destination:any, formData:any, settings:any, template:any) => {
-  try {
-    const info = await transporter.sendMail({
-      from: `Noreply <noreply@mashvp.com>`,
-      to: destination.email,
-      replyTo: `${formData.email}`,
-      subject: `[${settings.data.site_title}] Nouveau message - ${destination.label}`,
-      html:template
-    })
+// const sendEmail = async (transporter:any, destination:any, formData:any, settings:any, template:any) => {
+//   try {
+//     const info = await transporter.sendMail({
+//       from: `Noreply <noreply@mashvp.com>`,
+//       to: destination.email,
+//       replyTo: `${formData.email}`,
+//       subject: `[${settings.data.site_title}] Nouveau message - ${destination.label}`,
+//       html:template
+//     })
 
-    console.log('Email sent: ' + info.response)
-    return NextResponse.json({state:1});
+//     console.log('Email sent: ' + info.response)
+//     return NextResponse.json({state:1});
 
-  } catch (error) {
-    console.error('Error sending email: ', error)
-  return Response.json({ error, state:0 });
+//   } catch (error) {
+//     console.error('Error sending email: ', error)
+//   return Response.json({ error, state:0 });
 
-  }
-}
+//   }
+// }
 
 
 
