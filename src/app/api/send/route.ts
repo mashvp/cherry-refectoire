@@ -12,7 +12,6 @@ import nodemailer from 'nodemailer';
 
 
 
-
 async function getSettings(): Promise<any> {
   const client = createClient();
   const page = await client.getSingle("settings");
