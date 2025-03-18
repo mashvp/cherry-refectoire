@@ -49,7 +49,6 @@ const pt = (!prevSlide)? "pt-40" : "pt-200 t-m:pt-40";
 
 
 
-
  const color = (slice.primary.background)? "bg-ClearPrimary text-Tertiary" : "bg-Primary text-ClearPrimary";
  const colorBtn = (slice.primary.background)? "dark" : "clear";
 
