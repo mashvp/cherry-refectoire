@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 
 import { PrismicPreview } from "@prismicio/next";
 import { createClient, repositoryName } from "@/prismicio";
+import { GoogleTagManager } from '@next/third-parties/google' 
 import TransitionElement from '@/library/navigation/TransitionElement';
 
 import '@/globals.scss';
@@ -36,9 +37,10 @@ export default async function RootLayout({ children, params:{ lang }}:any) {
           type="image/<generated>"
           sizes="<generated>"
         />
+        <GoogleTagManager gtmId={`${process.env.GTM_ID}`} />
       </head>
       <body className="">
-
+      <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${process.env.GTM_ID}`} height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript>
         <TransitionElement footerData={footer.data} settingsData={setting.data} headerData={header.data}>
           {children}
         </TransitionElement>
