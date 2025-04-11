@@ -37,12 +37,7 @@ export default async function RootLayout({ children, params:{ lang }}:any) {
           type="image/<generated>"
           sizes="<generated>"
         />
-<<<<<<< HEAD
-
-
-=======
         <GoogleTagManager gtmId={`${process.env.GTM_ID}`} />
->>>>>>> main
       </head>
       <body className="">
       <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${process.env.GTM_ID}`} height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript>
