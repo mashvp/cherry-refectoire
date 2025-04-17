@@ -6,7 +6,9 @@ import { Inter } from 'next/font/google'
 import { PrismicPreview } from "@prismicio/next";
 import { createClient, repositoryName } from "@/prismicio";
 import { GoogleTagManager } from '@next/third-parties/google' 
+import GTMProvider from '@/component/GTMProvider';
 import TransitionElement from '@/library/navigation/TransitionElement';
+import useGTMProvider from '@/component/GTMProvider';
 
 import '@/globals.scss';
 
@@ -26,6 +28,8 @@ export default async function RootLayout({ children, params:{ lang }}:any) {
   const setting = await client.getSingle("settings", {lang:lang});
   const header = await client.getSingle("header", {lang:lang});
 
+  useGTMProvider();
+
 
   return (
     <html lang={lang}>
@@ -41,6 +45,7 @@ export default async function RootLayout({ children, params:{ lang }}:any) {
       </head>
       <body className="">
       <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${process.env.GTM_ID}`} height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript>
+      
         <TransitionElement footerData={footer.data} settingsData={setting.data} headerData={header.data}>
           {children}
         </TransitionElement>
