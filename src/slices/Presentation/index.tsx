@@ -34,7 +34,9 @@ const Presentation = ({ slice }: PresentationProps): JSX.Element => {
             </div>
           ))}
           <div className="col-3-7 row-2 d-xs:col-2-7 z-20 ay-center h-min t-m:col-1-10">
+            { (slice.primary.titre && (
             <TextScroll node="h2" className="hs2 pb-16">{slice.primary.titre}</TextScroll>
+            ))}
             <div className="richtext mb-20">
               <ScrollRichText field={slice.primary.contenu} />
             </div>

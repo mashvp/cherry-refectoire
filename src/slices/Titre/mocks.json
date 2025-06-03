@@ -18,6 +18,11 @@
 						}
 					}
 				]
+			},
+			"tag_titre": {
+				"__TYPE__": "FieldContent",
+				"value": "h2",
+				"type": "Select"
 			}
 		},
 		"items": []
@@ -41,6 +46,11 @@
 						}
 					}
 				]
+			},
+			"tag_titre": {
+				"__TYPE__": "FieldContent",
+				"value": "h3",
+				"type": "Select"
 			}
 		},
 		"items": [
