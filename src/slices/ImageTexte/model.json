@@ -38,6 +38,21 @@
             "thumbnails": []
           }
         },
+        "tag_titre": {
+          "type": "Select",
+          "config": {
+            "label": "Tag titre",
+            "placeholder": "",
+            "options": [
+              "h1",
+              "h2",
+              "h3",
+              "h4",
+              "h5"
+            ],
+            "default_value": "h1"
+          }
+        },
         "titre": {
           "type": "Text",
           "config": {
@@ -120,6 +135,21 @@
             "label": "Image",
             "constraint": {},
             "thumbnails": []
+          }
+        },
+        "tag_titre": {
+          "type": "Select",
+          "config": {
+            "label": "Tag titre",
+            "placeholder": "",
+            "options": [
+              "h1",
+              "h2",
+              "h3",
+              "h4",
+              "h5"
+            ],
+            "default_value": "h1"
           }
         },
         "titre": {

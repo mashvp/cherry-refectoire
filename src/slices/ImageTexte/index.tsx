@@ -92,7 +92,9 @@ const pt = (!prevSlide)? "pt-40" : "pt-200 t-m:pt-40";
         </div>
 
         <div className={`${side.txt} ay-center`}>
-          <TextScroll node="h2" className="hs2">{slice.primary.titre}</TextScroll>
+          { slice.primary.titre && (
+            <TextScroll node={slice.primary.tag_titre} className="hs2">{slice.primary.titre}</TextScroll>
+          )}
           <div className="richtext mt-20">
             <ScrollRichText field={slice.primary.texte} />
           </div>

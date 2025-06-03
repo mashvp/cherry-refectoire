@@ -230,8 +230,14 @@ img {
   h2 {
     @apply text-hs2 font-titre;
   }
-  h3 {
+  h3, h4, h5 {
    @apply text-hs3 font-titre;
+  }
+  ul {
+    li {
+      @apply list-disc;
+      margin-left: 20px;
+    }
   }
 }
 
