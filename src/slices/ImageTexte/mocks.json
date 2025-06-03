@@ -89,6 +89,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "history",
 				"type": "Text"
+			},
+			"tag_titre": {
+				"__TYPE__": "FieldContent",
+				"value": "h1",
+				"type": "Select"
 			}
 		},
 		"items": []
@@ -183,6 +188,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "fix",
 				"type": "Text"
+			},
+			"tag_titre": {
+				"__TYPE__": "FieldContent",
+				"value": "h1",
+				"type": "Select"
 			}
 		},
 		"items": [

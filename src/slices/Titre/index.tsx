@@ -25,7 +25,9 @@ const Titre = ({ slice, index, slices }: TitreProps): JSX.Element => {
       className={`${color} ${pt} pb-40`}
     >
       <div className="wrapper gridCtn text-center">
-        <TextScroll node="h1" className="hs2 col-3-11" windowPosition={0.6}>{slice.primary.titre}</TextScroll>
+        {(slice.primary.titre && (
+        <TextScroll node={slice.primary.tag_titre} className="hs2 col-3-11" windowPosition={0.6}>{slice.primary.titre}</TextScroll>
+        ))}
         <div className="richtext mt-20 col-3-11 t-m:col-1-13">
           <ScrollRichText field={slice.primary.texte} windowPosition={0.6}/>
         </div>

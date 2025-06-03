@@ -14,7 +14,7 @@ type childrenType =any
 
 interface TextSpanerType {
   children: childrenType
-  node ?: 'p' | 'h1' | 'h2' | 'h3' | 'div'
+  node ?: 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'div'
   className?: string
   callback?: (el:HTMLSpanElement, progress:number)=>void
   interval ?: number
@@ -64,16 +64,16 @@ export default function TextScroll({children, className = '', node = 'p',  callb
   switch (node) {
     case 'h1':
       return <h1 className={className} ref={txt}>{objects}</h1>;
-    break;
     case 'h2':
       return <h2 className={className} ref={txt}>{objects}</h2>;
-    break;
     case 'h3':
       return <h3 className={className} ref={txt}>{objects}</h3>;
-    break;
+    case 'h4':
+      return <h4 className={className} ref={txt}>{objects}</h4>;
+    case 'h5':
+      return <h5 className={className} ref={txt}>{objects}</h5>;
     case 'div':
       return <div className={className} ref={txt}>{objects}</div>;
-    break;
     case 'p':
     default:
       return <p className={className} ref={txt}>{objects}</p>;

@@ -1811,6 +1811,17 @@ export interface TestSliceDefaultPrimary {
   image: prismic.ImageField<never>;
 
   /**
+   * Tag titre field in *ImageTexte → Texte Image → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: h1
+   * - **API ID Path**: test.default.primary.tag_titre
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  tag_titre: prismic.SelectField<"h1" | "h2" | "h3" | "h4" | "h5", "filled">;
+
+  /**
    * Titre field in *ImageTexte → Texte Image → Primary*
    *
    * - **Field Type**: Text
@@ -1921,6 +1932,17 @@ export interface TestSliceImageTextePrimary {
   image: prismic.ImageField<never>;
 
   /**
+   * Tag titre field in *ImageTexte → Image Texte → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: h1
+   * - **API ID Path**: test.imageTexte.primary.tag_titre
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  tag_titre: prismic.SelectField<"h1" | "h2" | "h3" | "h4" | "h5", "filled">;
+
+  /**
    * Titre field in *ImageTexte → Image Texte → Primary*
    *
    * - **Field Type**: Text
@@ -2013,6 +2035,17 @@ export type TestSlice = prismic.SharedSlice<"test", TestSliceVariation>;
  */
 export interface TitreSliceDefaultPrimary {
   /**
+   * Tag titre field in *Titre → Light → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: h1
+   * - **API ID Path**: titre.default.primary.tag_titre
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  tag_titre: prismic.SelectField<"h1" | "h2" | "h3" | "h4" | "h5", "filled">;
+
+  /**
    * Titre field in *Titre → Light → Primary*
    *
    * - **Field Type**: Text
@@ -2050,6 +2083,17 @@ export type TitreSliceDefault = prismic.SharedSliceVariation<
  * Primary content in *Titre → Dark → Primary*
  */
 export interface TitreSliceDarkPrimary {
+  /**
+   * Tag titre field in *Titre → Dark → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: h1
+   * - **API ID Path**: titre.dark.primary.tag_titre
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  tag_titre: prismic.SelectField<"h1" | "h2" | "h3" | "h4" | "h5", "filled">;
+
   /**
    * Titre field in *Titre → Dark → Primary*
    *
