@@ -91,6 +91,7 @@ switch (process.env.NEXT_PUBLIC_INSTANCE) {
     base: ['Thorngumbald', 'sans-serif'],
     cta: ['Thorngumbald', 'sans-serif'],
   }
+  
 
   data.fontSize = {
     hs1: ['var(--fs-hs1)', {
