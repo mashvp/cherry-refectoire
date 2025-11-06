@@ -88,7 +88,7 @@ switch (process.env.NEXT_PUBLIC_INSTANCE) {
 
   data.fontFamily = {
     titre: ['Thorngumbald', 'serif'],
-    base: ['Thorngumbald', 'sans-serif'],
+    base: ['Inter', 'sans-serif'],
     cta: ['Thorngumbald', 'sans-serif'],
   }
   
