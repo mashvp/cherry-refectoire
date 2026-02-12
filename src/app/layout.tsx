@@ -50,7 +50,7 @@ export default async function RootLayout({ children, params:{ lang }}:any) {
         </TransitionElement>
 
         <PrismicPreview repositoryName={repositoryName} />
-        <script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=test-rdm"></script>
+        {/* <script async defer src="https://static.cdn.prismic.io/prismic.js?new=true&repo=test-rdm"></script> */}
         </body>
     </html>
   )
